@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  def create
+  def index
     @entry = Entry.new
   end
 
