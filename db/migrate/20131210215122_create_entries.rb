@@ -5,6 +5,7 @@ class CreateEntries < ActiveRecord::Migration
       t.integer :salary
       t.integer :asset_value
       t.integer :parents_asset_value
+      t.integer :age
       t.text :race
       t.text :gender
       t.text :education
