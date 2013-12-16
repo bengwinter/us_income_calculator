@@ -3,16 +3,16 @@ class CreateEntries < ActiveRecord::Migration
     create_table :entries do |t|
       t.text :zip_code
       t.integer :salary
-      t.integer :asset_value
-      t.integer :parents_asset_value
+      t.integer :assets
+      t.integer :inherited_assets
       t.integer :age
       t.text :race
       t.text :gender
       t.text :education
-      t.text :self_wealth_descr
-      t.text :self_happiness_descr
-      t.integer :guess_income_rank
-      t.integer :guess_wealth_rank
+      t.integer :self_wealth_descr
+      t.integer :self_happiness_descr
+      t.integer :salary_guess
+      t.integer :wealth_guess
       t.integer :output_income_rank
       t.integer :output_wealth_rank
       t.timestamps
