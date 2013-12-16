@@ -1,21 +1,41 @@
-<%= form_for(@entry) do |f| %>
-  <% if @entry.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
-
-      <ul>
-      <% @entry.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div id="entry-form-field">
-    <%= f.label :zip_code %><br>
-    <%= f.text_field :zip_code %>
+<div id="entry-form-demographic">
+  <label>Zip Code: </label>
+    <input type='text' id='zip-code' placeholder='Please enter your current zip code'></input></br>
+  <label>Race: </label>
+    <select>
+      <option value="white">White</option>
+      <option value="black">Black</option>
+      <option value="latino">Latino</option>
+      <option value="other">Other</option>
+    </select></br>
+  <label>Gender: </label>
+    <select>
+      <option value="female">Female</option>
+      <option value="male">Male</option>
+    </select></br>
+  <label>Education Level:</label>
+    <select>
+        <option value="no-highschool">No High School Diploma</option>
+        <option value="highschool">High School Diploma</option>
+        <option value="associate">Associate Degree (2 year institution)</option>
+        <option value="bachelors">Bachelor's Degree</option>
+        <option value="advanced">Advanced Degree</option>
+    </select></br>
+</div>
+<div id="entry-form-financial">
+  <label>Salary:</label>
+    <input type='integer' id='salary' placeholder='Please put your annual income for 2013'></input></br>
+  <label>Asset Value: </label>
+    <input type='integer' id='asset' placeholder='Definiton of Asset Value'></input></br>
+  <label>Inheritance Asset Value:</label>
+    <input type='integer' id='parents-asset' placeholder='Definition of Inheritance Asset Value'></input></br>
+  <label>Income Rank:</label>
+    <input type='integer' id='guess-income-rank' placeholder='Please guess where you think you rank'></input></br>
+  <label>Wealth Rank:</label>
+    <input type='integer' id='guess-wealth-rank' placeholder='Please guess where you think you rank'></input>
   </div>
-  <div id="submit-button">
-    <%= f.submit "Submit"%>
-  </div>
-<% end %>
+<button id='submit-entry'>Submit</button>
+
+<div id="output">
+  
+</div>
