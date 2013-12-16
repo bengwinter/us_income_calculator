@@ -9,8 +9,8 @@ class CreateEntries < ActiveRecord::Migration
       t.text :race
       t.text :gender
       t.text :education
-      t.text :self_wealth_desc
-      t.text :self_happiness_desc
+      t.text :self_wealth_descr
+      t.text :self_happiness_descr
       t.integer :guess_income_rank
       t.integer :guess_wealth_rank
       t.integer :output_income_rank
