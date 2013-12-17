@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  Site.setFormValidation();
   Site.setSubmitEvent();
   Site.sizeForm();
   Site.pageResizeListeners();
@@ -148,9 +147,5 @@ var Site = {
       var data = {zip_code: zip_code, race: race, gender: gender, education: education, salary: salary, assets: assets, inherited_assets: inherited_assets, salary_guess: salary_guess, wealth_guess: wealth_guess, self_happiness_descr: self_happiness_descr, self_wealth_descr: self_wealth_descr, age: age};
       Site.renderUpdate(data);
     });
-  },
-
-  setFormValidation: function() {
-    $('#user-input').validate();
   }
 }

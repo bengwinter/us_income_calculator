@@ -1,14 +1,15 @@
 <div id="user-input" class="large-12 columns">
+  <form id="user-input-form">
   <div id="entry-form-financial" class="large-4 columns form-column right-border-column">
     <div class="entry-form-header-div">
       <h2 class="entry-form-header form-subheader"><span>F</span>INANCIAL &nbsp;<span>I</span>NFORMATION</h2>
     </div>
-      <label>
+      <label for='salary'>
         <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">
           <span class="entry-form-header-first-letter">S</span><span class="entry-form-header-rest">ALARY</span>
         </span>
       </label>
-      <input type='text' id='salary' placeholder='Salary for 2013' required></input>
+        <input type='text' id='salary' required placeholder='Salary for 2013' ></input>
       <label>
         <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">
           <span class="entry-form-header-first-letter">A</span><span class="entry-form-header-rest">SSET</span> <span class="entry-form-header-first-letter">V</span><span class="entry-form-header-rest">ALUE</span>
@@ -129,7 +130,7 @@
     </div>
   </div>
   <div id="button-wrapper">
-    <button id='submit-entry'>SUBMIT</button>
+    <button type="submit" id="submit-entry">SUBMIT</button>
   </div>
   <div id="entry-form-guesses-static" class="large-4 columns form-column">
     <div class="entry-form-header-div">
@@ -162,7 +163,7 @@
     <button id='resubmit-entry'>UPDATE</button>
     <button id='back-button'><span data-tooltip class="has-tip" id="back-button-tool-tip" data-options="disable_for_touch:true" title="Clicking back will erase all enetered data!">BACK</span></button>
   </div>
-  
+  </form>
 </div>
 
 <div id="output" class="large-9 columns">
