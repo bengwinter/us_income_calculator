@@ -4,7 +4,7 @@
 
 // Uncomment to use rem-calc() in your settings
 // @import "foundation/functions";
-@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:100,400,700,100italic);
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,500,700,300italic);
 // $experimental: true;
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
@@ -901,14 +901,14 @@ $header-font-weight: 700;
 // TOOLTIPS
 //
 
-// $include-html-tooltip-classes: $include-html-classes;
+//$include-html-tooltip-classes: $include-html-classes;
 
-// $has-tip-border-bottom: dotted 1px #ccc;
+$has-tip-border-bottom: 0px;
 // $has-tip-font-weight: bold;
 // $has-tip-font-color: #333;
 // $has-tip-border-bottom-hover: dotted 1px darken($primary-color, 20%);
 // $has-tip-font-color-hover: $primary-color;
-// $has-tip-cursor-type: help;
+$has-tip-cursor-type: pointer;
 
 // $tooltip-padding: rem-calc(12);
 // $tooltip-bg: #333;

@@ -1,18 +1,31 @@
 <div id="user-input" class="large-12 columns">
   <div id="entry-form-financial" class="large-4 columns form-column right-border-column">
     <div class="entry-form-header-div">
-      <h2 class="entry-form-header form-subheader"><span>F</span>INANCIAL <span>I</span>NFORMATION</h2>
+      <h2 class="entry-form-header form-subheader"><span>F</span>INANCIAL &nbsp;<span>I</span>NFORMATION</h2>
     </div>
-    <label><span>S</span>ALARY</label>
-      <input type='text' id='salary' placeholder='Please put your annual income for 2013'></input>
-    <label><span>A</span>SSET <span>V</span>ALUE</label>
-      <input type='text' id='assets' placeholder='Definiton of Asset Value'></input>
-    <label><span>I</span>NHERITANCE <span>A</span>SSET <span>V</span>ALUE:</label>
-      <input type='text' id='inherited-assets' placeholder='Definition of Inheritance Asset Value'></input>
+      <label>
+        <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">
+          <span class="entry-form-header-first-letter">S</span><span class="entry-form-header-rest">ALARY</span>
+        </span>
+      </label>
+      <input type='text' id='salary' placeholder='Salary for 2013'></input>
+      <label>
+        <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">
+          <span class="entry-form-header-first-letter">A</span><span class="entry-form-header-rest">SSET</span> <span class="entry-form-header-first-letter">V</span><span class="entry-form-header-rest">ALUE</span>
+        </span>
+      </label>
+      <input type='text' id='assets' placeholder='Current Total Asset Value'></input>
+      <label id='inheritance-asset-label'>
+        <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">
+          <span class="entry-form-header-first-letter">I</span><span class="entry-form-header-rest">NHERITANCE</span> <span class="entry-form-header-first-letter">A</span><span class="entry-form-header-rest">SSET</span> <span class="entry-form-header-first-letter">V</span><span class="entry-form-header-rest">ALUE</span>
+        </span>
+      </label>
+      <span id='inheritance-calculator-link'>(calc)</span>
+      <input type='text' id='inherited-assets' placeholder='Current Inheritance Asset Value'></input>
   </div>
   <div id="entry-form-demographic" class="large-4 columns form-column right-border-column">
     <div class="entry-form-header-div">
-      <h2 class="entry-form-header form-subheader"><span>D</span>EMOGRAPHIC <span>I</span>NFORMATION</h2>
+      <h2 class="entry-form-header form-subheader"><span>D</span>EMOGRAPHIC &nbsp;<span>I</span>NFORMATION</h2>
     </div>
     <div class="row collapse">
       <div class="small-6 columns">
@@ -25,16 +38,16 @@
       </div>
     </div>
     <label><span>E</span>DUCATION <span>L</span>EVEL</label>
-      <select class="dropdown" id='education-level'>
-        <option value="" disabled selected>Education Level</option>
-        <option value="no-highschool">No High School Diploma</option>
-        <option value="highschool">High School Diploma</option>
-        <option value="associate">Associate Degree (2 year institution)</option>
-        <option value="bachelors">Bachelor's Degree</option>
-        <option value="advanced">Advanced Degree</option>
-      </select>
+    <select class="dropdown" id='education-level'>
+      <option value="" disabled selected>Education Level</option>
+      <option value="no-highschool">No High School Diploma</option>
+      <option value="highschool">High School Diploma</option>
+      <option value="associate">Associate Degree (2 year institution)</option>
+      <option value="bachelors">Bachelor's Degree</option>
+      <option value="advanced">Advanced Degree</option>
+    </select>
     <div class="row collapse">
-      <div class="small-5 columns input-container">
+      <div class="small-5 columns">
         <label><span>R</span>ACE</label>
         <select class="dropdown" id='race'>
           <option value="" disabled selected>Race</option>
@@ -44,7 +57,7 @@
           <option value="other">Other</option>
         </select>
       </div>
-      <div class="small-5 columns input-container">
+      <div class="small-5 columns">
         <label><span>G</span>ENDER</label>
         <select class="dropdown" id='gender'>
           <option value="" disabled selected>Gender</option>
@@ -56,53 +69,110 @@
   </div>
   <div id="entry-form-guesses" class="large-4 columns form-column">
     <div class="entry-form-header-div">
-      <h2 class="entry-form-header form-subheader"><span>O</span>THER <span>I</span>NFORMATION</h2>
+      <h2 class="entry-form-header form-subheader"><span>O</span>THER &nbsp;<span>I</span>NFORMATION</h2>
     </div>
-    <div class="input-container-no-columns-class">
-      <label><span>S</span>ALARY <span>P</span>ERCENTILE <span>G</span>UESS</label>
-        <input type='text' id='salary-guess' placeholder='Please guess where you think you rank'></input>
-      <label><span>W</span>EALTH <span>P</span>ERCENTILE <span>G</span>UESS</label>
-        <input type='text' id='wealth-guess' placeholder='Please guess where you think you rank'></input>
+    <div>
+      <label>
+        <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">        
+          <span class="entry-form-header-first-letter">S</span><span class="entry-form-header-rest">ALARY</span> <span class="entry-form-header-first-letter">P</span><span class="entry-form-header-rest">ERCENTILE</span> <span class="entry-form-header-first-letter">G</span><span class="entry-form-header-rest">UESS</span>
+        </span>
+      </label>
+      <input type='text' id='salary-guess' placeholder='Guess your percentile'></input>
+      <label>
+        <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">
+          <span class="entry-form-header-first-letter">W</span><span class="entry-form-header-rest">EALTH</span> <span class="entry-form-header-first-letter">P</span><span class="entry-form-header-rest">ERCENTILE</span> <span class="entry-form-header-first-letter">G</span><span class="entry-form-header-rest">UESS</span>
+        </span>
+      </label>
+      <input type='text' id='wealth-guess' placeholder='Guess your percentile'></input>
     </div>
-      <div class="row collapse">
-        <div class="small-5 columns input-container">
-          <label><span>W</span>EALTH <span>H</span>APPINESS</label>
-            <select class="dropdown" id="self-wealth-descr">
-              <option value="" disabled selected>1-10</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-        </div>
-        <div class="small-5 columns input-container">
-          <label><span>O</span>VERALL <span>H</span>APPINESS </label>
-            <select class="dropdown" id="self-happiness-descr">
-              <option value="" disabled selected>1-10</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </div>
+    <div class="row collapse">
+      <div class="small-5 columns">
+        <label>
+          <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">
+            <span class="entry-form-header-first-letter">W</span><span class="entry-form-header-rest">EALTH</span> <span class="entry-form-header-first-letter">H</span><span class="entry-form-header-rest">APPINESS</span>
+          </span>
+        </label>
+        <select class="dropdown" id="self-wealth-descr">
+          <option value="" disabled selected>1-10</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+      <div class="small-5 columns">
+        <label>
+          <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">
+            <span class="entry-form-header-first-letter">O</span><span class="entry-form-header-rest">VERALL</span> <span class="entry-form-header-first-letter">H</span><span class="entry-form-header-rest">APPINESS</span>
+          </span>
+        </label>
+        <select class="dropdown" id="self-happiness-descr">
+          <option value="" disabled selected>1-10</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
       </div>
     </div>
   </div>
   <div id="button-wrapper">
     <button id='submit-entry'>SUBMIT</button>
   </div>
-  <div id="output" class="large-9 columns">
+  <div id="inheritance-calculator-container-no-output" class="display-calc-no-output">
+      <div class="inheritance-calculator">
+      </div>
+    </div>
+  <div id="entry-form-guesses-static" class="large-4 columns form-column">
+    <div class="entry-form-header-div">
+      <h2 class="entry-form-header form-subheader"><span>P</span>ERCENTILE &nbsp;<span>G</span>UESSES</h2>
+    </div>
+    <div class="row collapse">
+      <div class="small-5 columns guess-min">
+        <label>
+          <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">
+            <span class="entry-form-header-first-letter">S</span><span class="entry-form-header-rest">ALARY</span>
+          </span>
+        </label>
+        <div class="percentile-guess-container">
+          <p id="salary-percentile-guess"></p>
+        </div>
+      </div>
+      <div class="small-5 columns guess-min">
+        <label>          
+          <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">
+            <span class="entry-form-header-first-letter">W</span><span class="entry-form-header-rest">EALTH</span>
+          </span>
+        </label>
+        <div class="percentile-guess-container">
+          <p id="wealth-percentile-guess"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="min-button-wrapper">
+    <button id='resubmit-entry'>RESUBMIT</button>
+    <button id='back-button'><span data-tooltip class="has-tip" id="back-button-tool-tip" data-options="disable_for_touch:true" title="Clicking back will erase all enetered data!">BACK</span></button>
+  </div>
+  
+</div>
+
+<div id="output" class="large-9 columns">
+</div>
+
+<div id="inheritance-calculator-container-output" class="display-calc-no-output">
+  <div class="inheritance-calculator">
   </div>
 </div>
