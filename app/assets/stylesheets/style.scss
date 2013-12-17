@@ -130,6 +130,9 @@
   }
 }
 
+.entry-form-guesses-static-show {
+}
+
 .bottom-bar-link {
   color: rgba(180, 180, 180, 1.0000);
 }
@@ -182,18 +185,10 @@
   cursor: pointer;
 }
 
-.display-calc-no-output {
+#inheritance-calculator-container {
+  text-align: center;
+  width: 100%;
   display: none;
-}
-
-#inheritance-calculator-container-no-output {
-  text-align: center;
-  width: 100%;
-}
-
-#inheritance-calculator-container-output {
-  text-align: center;
-  width: 100%;
 }
 
 .inheritance-calculator {
@@ -201,10 +196,8 @@
   height: 150px;
   display: inline-block;
   width: 50%;
-
+  margin-bottom: 25px;
 }
-
-
 
 #inheritance-asset-label {
   display: inline-block;
@@ -216,5 +209,6 @@
   background: black;
   display: none;
   color: white;
+  margin-bottom: 25px;
 }
 

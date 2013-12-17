@@ -41,7 +41,6 @@ var Site = {
     $('#resubmit-entry').show();
     $('#back-button').show();
     $('#output').fadeIn();
-    $('#inheritance-calculator-container-no-output').hide();
   },
 
   renderGuessData: function(data) {
@@ -49,17 +48,17 @@ var Site = {
     if(salaryGuess !== "" && wealthGuess !== "") {
       $('#salary-percentile-guess').append(salaryGuess);
       $('#wealth-percentile-guess').append(wealthGuess);
-      $('#entry-form-guesses-static').show();
+      $('#entry-form-guesses-static').addClass('entry-form-guesses-static-show').show();
     } else if(salaryGuess === "" && wealthGuess !== "") {
       $('#salary-percentile-guess').append(noEntry);
       $('#wealth-percentile-guess').append(wealthGuess);
-      $('#entry-form-guesses-static').show();
+      $('#entry-form-guesses-static').addClass('entry-form-guesses-static-show').show();
     } else if(salaryGuess !== "" && wealthGuess === "") {
       $('#salary-percentile-guess').append(salaryGuess);
       $('#wealth-percentile-guess').append(noEntry);
-      $('#entry-form-guesses-static').show();
+      $('#entry-form-guesses-static').addClass('entry-form-guesses-static-show').show();
     } else {
-      $('#entry-form-guesses-static').hide();
+      $('#entry-form-guesses-static').removeClass('entry-form-guesses-static-show').hide();
     };
   
   },
@@ -91,11 +90,11 @@ var Site = {
   animateInheritanceCalculator: function() {
     $('#inheritance-calculator-link').click(function(e){
       e.preventDefault();
-      if($('#inheritance-calculator-container-no-output').hasClass('display-calc-no-output')) {
-        $('#inheritance-calculator-container-no-output').removeClass('display-calc-no-output')
-      } else {
-        $('#inheritance-calculator-container-no-output').addClass('display-calc-no-output')
-      };
+      if($('#inheritance-calculator-container').hasClass('display-calc')) {
+          $('#inheritance-calculator-container').removeClass('display-calc').hide();
+        } else {
+          $('#inheritance-calculator-container').addClass('display-calc').show();
+        }
     });
   }
 }
