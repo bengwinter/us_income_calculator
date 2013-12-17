@@ -49,7 +49,15 @@
 
 #header-container {
   text-align: center;
+  background-color: rgba(46, 84, 35, 1.0000);
+  h1 {
+    color: rgba(230, 230, 230, 1.000);
+  }
+  p {
+    color: rgba(170, 170, 170, 1.000);
+  }
 }
+
 
 #paragraph-header {
   margin-top: -10px;
