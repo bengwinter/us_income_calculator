@@ -5,6 +5,7 @@ $(document).ready(function(){
   Site.animateAbout();
   Site.animateInheritanceCalculator();
   Site.setBackEvent();
+  Site.setResubmitEvent();
 });
 
 var Site = {
@@ -117,5 +118,13 @@ var Site = {
       e.preventDefault();
       Site.animateBack();
     });
-  }
+  },
+  
+  setResubmitEvent: function() {
+    $('#resubmit-entry').click(function(e){
+      e.preventDefault();
+      Site.animateBack();
+    });
+  },
+
 }
