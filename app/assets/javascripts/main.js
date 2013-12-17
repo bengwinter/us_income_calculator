@@ -51,11 +51,24 @@ var Site = {
     $('.form-column').addClass('large-4').addClass('right-border-column').removeClass('large-12').removeClass('form-column-min');
     $('.form-subheader').addClass('entry-form-header').removeClass('entry-form-header-min')
     $('#submit-entry').show();
+    $('#entry-form-guesses-static').removeClass('entry-form-guesses-static-show').hide();
     $('#entry-form-guesses').show();
     $('#resubmit-entry').hide();
     $('#back-button').hide();
     $('#output').hide();
     $('#inheritance-calculator-container').removeClass('display-calc').hide();
+    $('#zip-code').val('');
+    $('#race').val('');
+    $('#gender').val('');
+    $('#education-level').val('');
+    $('#salary').val('');
+    $('#assets').val('');
+    $('#inherited-assets').val('');
+    $('#salary-guess').val('');
+    $('#wealth-guess').val('');
+    $('#self-wealth-descr').val('');
+    $('#self-happiness-descr').val('');
+    $('#age').val('');
   },
 
   animateInheritanceCalculator: function() {
@@ -90,8 +103,14 @@ var Site = {
   },
 
   renderOutput: function(data) {
-    var html = "<h2>Zip Code: </h2>" + data["zip_code"] + "<h3>Salary Guess: </h3>" + data["salary_guess"]
+    var html = "<ul>Data<li>Salary: " + data["salary"] + "</li><li>Assets: " + data["assets"] + "</li><li>Inherited Assets: " + data["inherited_assets"] + "</li><li>Zip Code: " + data["zip_code"] + "</li><li>Race: " + data["race"] + "</li><li>Gender: " + data["gender"] + "</li><li>Education: " + data["education"] + "</li><li>Age: " + data["age"] + "</li><li>Salary Guess: " + data["salary_guess"] + "</li><li>Wealth Guess: " + data["wealth_guess"] + "</li><li>Happiness Rating: " + data["self_happiness_descr"] + "</li><li>Wealth Happiness Rating: " + data["self_wealth_descr"] + "</li></ul>"
     $('#output').append(html);
+  },
+
+  renderUpdate: function(data) {
+    $('#output').empty();
+    var updated_html = "<ul>Data<li>Salary: " + data["salary"] + "</li><li>Assets: " + data["assets"] + "</li><li>Inherited Assets: " + data["inherited_assets"] + "</li><li>Zip Code: " + data["zip_code"] + "</li><li>Race: " + data["race"] + "</li><li>Gender: " + data["gender"] + "</li><li>Education: " + data["education"] + "</li><li>Age: " + data["age"] + "</li><li>Salary Guess: " + data["salary_guess"] + "</li><li>Wealth Guess: " + data["wealth_guess"] + "</li><li>Happiness Rating: " + data["self_happiness_descr"] + "</li><li>Wealth Happiness Rating: " + data["self_wealth_descr"] + "</li></ul>"
+    $('#output').append(updated_html);
   },
 
   setSubmitEvent: function() {
@@ -123,7 +142,9 @@ var Site = {
   setResubmitEvent: function() {
     $('#resubmit-entry').click(function(e){
       e.preventDefault();
-      Site.animateBack();
+      var zip_code = $('#zip-code').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary = $('#salary').val(), assets = $('#assets').val(), inherited_assets = $('#inherited-assets').val(), salary_guess = $('#salary-guess').val(), wealth_guess = $('#wealth-guess').val(), self_wealth_descr = $('#self-wealth-descr').val(), self_happiness_descr = $('#self-happiness-descr').val(), age = $('#age').val();
+      var data = {zip_code: zip_code, race: race, gender: gender, education: education, salary: salary, assets: assets, inherited_assets: inherited_assets, salary_guess: salary_guess, wealth_guess: wealth_guess, self_happiness_descr: self_happiness_descr, self_wealth_descr: self_wealth_descr, age: age};
+      Site.renderUpdate(data);
     });
   },
 
