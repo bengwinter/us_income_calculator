@@ -1,74 +1,108 @@
-<div id="entry-form-demographic">
-  <label>Zip Code: </label>
-    <input type='text' id='zip-code' placeholder='Please enter your current zip code'></input></br>
-  <label>Race: </label>
-    <select id='race'>
-      <option value="" disabled selected>Please select a race</option>
-      <option value="white">White</option>
-      <option value="black">Black</option>
-      <option value="latino">Latino</option>
-      <option value="other">Other</option>
-    </select></br>
-  <label>Gender: </label>
-    <select id='gender'>
-      <option value="" disabled selected>Please select a gender</option>
-      <option value="female">Female</option>
-      <option value="male">Male</option>
-    </select></br>
-  <label>Education Level:</label>
-    <select id='education-level'>
-      <option value="" disabled selected>Education Level</option>
-      <option value="no-highschool">No High School Diploma</option>
-      <option value="highschool">High School Diploma</option>
-      <option value="associate">Associate Degree (2 year institution)</option>
-      <option value="bachelors">Bachelor's Degree</option>
-      <option value="advanced">Advanced Degree</option>
-    </select></br>
-</div>
-<div id="entry-form-financial">
-  <label>Salary:</label>
-    <input type='integer' id='salary' placeholder='Please put your annual income for 2013'></input></br>
-  <label>Asset Value: </label>
-    <input type='integer' id='assets' placeholder='Definiton of Asset Value'></input></br>
-  <label>Inheritance Asset Value:</label>
-    <input type='integer' id='inherited-assets' placeholder='Definition of Inheritance Asset Value'></input></br>
+<div id="user-input" class="large-12 columns">
+  <div id="entry-form-financial" class="large-4 columns form-column right-border-column">
+    <div class="entry-form-header-div">
+      <h2 class="entry-form-header form-subheader"><span>F</span>INANCIAL <span>I</span>NFORMATION</h2>
+    </div>
+    <label><span>S</span>ALARY</label>
+      <input type='text' id='salary' placeholder='Please put your annual income for 2013'></input>
+    <label><span>A</span>SSET <span>V</span>ALUE</label>
+      <input type='text' id='assets' placeholder='Definiton of Asset Value'></input>
+    <label><span>I</span>NHERITANCE <span>A</span>SSET <span>V</span>ALUE:</label>
+      <input type='text' id='inherited-assets' placeholder='Definition of Inheritance Asset Value'></input>
   </div>
-  <div id="entry-form-guesses">
-  <label>Wealth Happiness (please rate your satisfaction with your current economic standing. 1 = "extremly unhappy quote" and 10 = "extremely happy quote"): </label>
-    <select id="self-wealth-descr">
-      <option value="" disabled selected>1-10</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </select></br>
-  <label>Happiness (please rate your happiness. 1 = "extremly unhappy quote" and 10 = "extremely happy quote"): </label>
-    <select id="self-happiness-descr">
-      <option value="" disabled selected>1-10</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </select></br>
-  <label>Income Rank:</label>
-    <input type='integer' id='salary-guess' placeholder='Please guess where you think you rank'></input></br>
-  <label>Wealth Rank:</label>
-    <input type='integer' id='wealth-guess' placeholder='Please guess where you think you rank'></input>
+  <div id="entry-form-demographic" class="large-4 columns form-column right-border-column">
+    <div class="entry-form-header-div">
+      <h2 class="entry-form-header form-subheader"><span>D</span>EMOGRAPHIC <span>I</span>NFORMATION</h2>
+    </div>
+    <div class="row collapse">
+      <div class="small-6 columns">
+        <label><span>Z</span>IP <span>C</span>ODE</label>
+        <input type='text' id='zip-code' placeholder='Zip Code'></input>
+      </div>
+      <div class="small-4 columns">
+        <label><span>A</span>GE</label>
+        <input type='text' id='age' placeholder='Age'></input>
+      </div>
+    </div>
+    <label><span>E</span>DUCATION <span>L</span>EVEL</label>
+      <select class="dropdown" id='education-level'>
+        <option value="" disabled selected>Education Level</option>
+        <option value="no-highschool">No High School Diploma</option>
+        <option value="highschool">High School Diploma</option>
+        <option value="associate">Associate Degree (2 year institution)</option>
+        <option value="bachelors">Bachelor's Degree</option>
+        <option value="advanced">Advanced Degree</option>
+      </select>
+    <div class="row collapse">
+      <div class="small-5 columns input-container">
+        <label><span>R</span>ACE</label>
+        <select class="dropdown" id='race'>
+          <option value="" disabled selected>Race</option>
+          <option value="white">White</option>
+          <option value="black">Black</option>
+          <option value="latino">Latino</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="small-5 columns input-container">
+        <label><span>G</span>ENDER</label>
+        <select class="dropdown" id='gender'>
+          <option value="" disabled selected>Gender</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+        </select>
+      </div>
+    </div>
   </div>
-<button id='submit-entry'>Submit</button>
-
-<div id="output">
-  
+  <div id="entry-form-guesses" class="large-4 columns form-column">
+    <div class="entry-form-header-div">
+      <h2 class="entry-form-header form-subheader"><span>O</span>THER <span>I</span>NFORMATION</h2>
+    </div>
+    <div class="input-container-no-columns-class">
+      <label><span>S</span>ALARY <span>P</span>ERCENTILE <span>G</span>UESS</label>
+        <input type='text' id='salary-guess' placeholder='Please guess where you think you rank'></input>
+      <label><span>W</span>EALTH <span>P</span>ERCENTILE <span>G</span>UESS</label>
+        <input type='text' id='wealth-guess' placeholder='Please guess where you think you rank'></input>
+    </div>
+      <div class="row collapse">
+        <div class="small-5 columns input-container">
+          <label><span>W</span>EALTH <span>H</span>APPINESS</label>
+            <select class="dropdown" id="self-wealth-descr">
+              <option value="" disabled selected>1-10</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+        </div>
+        <div class="small-5 columns input-container">
+          <label><span>O</span>VERALL <span>H</span>APPINESS </label>
+            <select class="dropdown" id="self-happiness-descr">
+              <option value="" disabled selected>1-10</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div id="button-wrapper">
+    <button id='submit-entry'>SUBMIT</button>
+  </div>
+  <div id="output" class="large-9 columns">
+  </div>
 </div>

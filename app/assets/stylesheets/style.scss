@@ -1,2 +1,116 @@
+@import "bourbon";
 
+#container {
+  height: 2000px;
+  width: 100%;
+  padding: 10px 20px;
+  color: rgba(203, 203, 203, 1.0000);
+  overflow: scroll;
+  label {
+    font-weight: 500;
+    span {
+      font-size: 1.05rem;
+      font-weight: 550;
+    }
+  }
+}
 
+.right-border-column {
+  border-right: 1px solid rgba(203, 203, 203, 1.0000);
+}
+
+.entry-form-header-div {
+  text-align: center;
+}
+
+.vertical-line-delimeter {
+  width: 0.2em;
+  height: 100px;
+}
+
+#header-container {
+  text-align: center;
+}
+
+#paragraph-header {
+  margin-top: -10px;
+}
+
+#submit-entry {
+  margin: 20px;
+  padding: 17px 45px;
+  background-color: rgba(46, 84, 35, 1.0000);
+}
+
+.entry-form-header {
+    font-size: 1.5rem;
+    span {
+      font-size: 1.9rem;
+    }
+}
+
+.entry-form-header-min {
+    font-size: 1.0rem;
+    span {
+      font-size: 1.2rem;
+    }
+}
+
+.form-column-min {
+  input {
+    margin: 2px 0;
+    height: 30px;
+  }
+  span {
+    
+  }
+}
+
+#bottom-bar {
+  width: 100%;
+  background-color: rgba(33, 33, 33, 1.0000);
+  color: rgba(221, 221, 221, 1.0000);
+  bottom: 0;
+  position: fixed;
+  height: 25px;
+  ul {
+    text-align: center;
+    margin: 0;
+    li {
+      padding-left: 5%;
+      padding-right: 5%;
+      display: inline-block;
+    }
+  }
+}
+
+@media screen and (max-width:705px) {
+  #bottom-bar {
+    ul {
+      li {
+        display: block;
+      }
+    }
+  }
+}
+
+#button-wrapper {
+  text-align: center;
+  width: 100%;
+}
+
+.dropdown {
+  color: rgba(0, 0, 0, 0.4);
+  height: 37px;
+  font-size: 14px;
+  font-family: "Alegreya Sans";
+  weight: 400;
+}
+
+#output {
+  background-color: rgba(255, 255, 255, 1.0);
+  height: 700px;
+  background: black;
+  display: none;
+  color: white;
+}

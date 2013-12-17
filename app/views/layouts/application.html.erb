@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Wealth in America</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,300,700,100italic,400italic' rel='stylesheet' type='text/css'>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>U.S. Wealth Calculator</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
-
-</body>
+  <body>
+    <div id="container">
+      <div id="header-container">
+        <h1>U.S. Wealth Calculator</h1>
+        <p id="paragraph-header">The disparity in income and wealth distribution in the United States has rapidly increased over the last 15 years. Enter in your information to see where you stand in the United States wealth chain</p>
+      </div>
+      <%= yield %>
+    </div>
+    <div id="bottom-bar">
+      <ul id="bottombar-list">
+        <li>Created by <%= link_to "Ben Winter", "http://www.benwinter.co" %></li>
+        <li id='about'><a>About</a></li>
+        <li>&copy U.S. Wealth Calculator, 2013</li>
+      </ul>
+    </div>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
