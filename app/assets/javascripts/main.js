@@ -4,6 +4,7 @@ $(document).ready(function(){
   Site.pageResizeListeners();
   Site.animateAbout();
   Site.animateInheritanceCalculator();
+  Site.setBackEvent();
 });
 
 var Site = {
@@ -36,11 +37,35 @@ var Site = {
     $('#user-input').removeClass('large-12').addClass('large-3');
     $('.form-column').removeClass('large-4').removeClass('right-border-column').addClass('large-12').addClass('form-column-min');
     $('.form-subheader').removeClass('entry-form-header').addClass('entry-form-header-min')
-    $('#submit-entry').remove();
-    $('#entry-form-guesses').remove();
+    $('#submit-entry').hide();
+    $('#entry-form-guesses').hide();
     $('#resubmit-entry').show();
     $('#back-button').show();
     $('#output').fadeIn();
+    $('#inheritance-calculator-container').removeClass('display-calc').hide();
+  },
+
+  animateBack: function() {
+    $('#user-input').addClass('large-12').removeClass('large-3');
+    $('.form-column').addClass('large-4').addClass('right-border-column').removeClass('large-12').removeClass('form-column-min');
+    $('.form-subheader').addClass('entry-form-header').removeClass('entry-form-header-min')
+    $('#submit-entry').show();
+    $('#entry-form-guesses').show();
+    $('#resubmit-entry').hide();
+    $('#back-button').hide();
+    $('#output').hide();
+    $('#inheritance-calculator-container').removeClass('display-calc').hide();
+  },
+
+  animateInheritanceCalculator: function() {
+    $('#inheritance-calculator-link').click(function(e){
+      e.preventDefault();
+      if($('#inheritance-calculator-container').hasClass('display-calc')) {
+          $('#inheritance-calculator-container').removeClass('display-calc').hide();
+        } else {
+          $('#inheritance-calculator-container').addClass('display-calc').show();
+        }
+    });
   },
 
   renderGuessData: function(data) {
@@ -64,8 +89,8 @@ var Site = {
   },
 
   renderOutput: function(data) {
-    var zipHtml = "<h2>Zip Code: </h2>" + data["zip_code"] + "<h3>Salary Guess: </h3>" + data["salary_guess"]
-    $('#output').append(zipHtml);
+    var html = "<h2>Zip Code: </h2>" + data["zip_code"] + "<h3>Salary Guess: </h3>" + data["salary_guess"]
+    $('#output').append(html);
   },
 
   setSubmitEvent: function() {
@@ -87,14 +112,10 @@ var Site = {
     });
   },
 
-  animateInheritanceCalculator: function() {
-    $('#inheritance-calculator-link').click(function(e){
+  setBackEvent: function() {
+    $('#back-button').click(function(e){
       e.preventDefault();
-      if($('#inheritance-calculator-container').hasClass('display-calc')) {
-          $('#inheritance-calculator-container').removeClass('display-calc').hide();
-        } else {
-          $('#inheritance-calculator-container').addClass('display-calc').show();
-        }
+      Site.animateBack();
     });
   }
 }
