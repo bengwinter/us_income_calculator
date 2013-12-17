@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  Site.setFormValidation();
   Site.setSubmitEvent();
   Site.sizeForm();
   Site.pageResizeListeners();
@@ -69,6 +70,7 @@ var Site = {
     $('#self-wealth-descr').val('');
     $('#self-happiness-descr').val('');
     $('#age').val('');
+    $('#output').empty();
   },
 
   animateInheritanceCalculator: function() {
@@ -148,4 +150,7 @@ var Site = {
     });
   },
 
+  setFormValidation: function() {
+    $('#user-input').validate();
+  }
 }
