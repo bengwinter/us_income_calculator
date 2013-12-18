@@ -118,6 +118,7 @@
   input {
     margin: 2px 0;
     height: 30px;
+    padding: 2px 2px 2px 5px;
   }
   label {
     margin: 5px 0;
@@ -173,6 +174,7 @@
   font-size: 14px;
   font-family: "Alegreya Sans";
   weight: 400;
+  color: rgba(0, 0, 0, 1.0);
 }
 
 .guess-min {
@@ -236,4 +238,5 @@
 .large-comma-dollar-sign {
   font-size: 1.1rem;
 }
+
 

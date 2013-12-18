@@ -124,18 +124,18 @@ var Site = {
       e.preventDefault();
       var zip_code = $('#zip-code').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary = $('#salary').val(), assets = $('#assets').val(), inherited_assets = $('#inherited-assets').val(), salary_guess = $('#salary-guess').val(), wealth_guess = $('#wealth-guess').val(), self_wealth_descr = $('#self-wealth-descr').val(), self_happiness_descr = $('#self-happiness-descr').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]');
       var data = {zip_code: zip_code, race: race, gender: gender, education: education, salary: salary, assets: assets, inherited_assets: inherited_assets, salary_guess: salary_guess, wealth_guess: wealth_guess, self_happiness_descr: self_happiness_descr, self_wealth_descr: self_wealth_descr, age: age};
-      if(invalidFields.length === 0){
-        $.ajax({
-          url: 'submit_entry',
-          type: 'POST',
-          data: data, 
-          success: function(){
-          }
-        });
-        Site.animateSubmit();
-        Site.renderGuessData(data);
-        Site.renderOutput(data)
-      };
+      if((zip_code !== "" || race !== null || gender !== null || education !== null ||salary !== "" || assets !== "" || inherited_asset !== "" || age !== "") && invalidFields.length === 0) {
+          $.ajax({
+            url: 'submit_entry',
+            type: 'POST',
+            data: data, 
+            success: function(){
+            }
+          });
+          Site.animateSubmit();
+          Site.renderGuessData(data);
+          Site.renderOutput(data)
+        };
     });
   },
 
@@ -151,8 +151,8 @@ var Site = {
       e.preventDefault();
       var zip_code = $('#zip-code').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary = $('#salary').val(), assets = $('#assets').val(), inherited_assets = $('#inherited-assets').val(), salary_guess = $('#salary-guess').val(), wealth_guess = $('#wealth-guess').val(), self_wealth_descr = $('#self-wealth-descr').val(), self_happiness_descr = $('#self-happiness-descr').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]');
       var data = {zip_code: zip_code, race: race, gender: gender, education: education, salary: salary, assets: assets, inherited_assets: inherited_assets, salary_guess: salary_guess, wealth_guess: wealth_guess, self_happiness_descr: self_happiness_descr, self_wealth_descr: self_wealth_descr, age: age};
-      if(invalidFields.length === 0){
-        Site.renderUpdate(data);
+      if((zip_code !== null || race !== null || gender !== null || education !== null ||salary !== null || assets !== null ||inherited_asset !== null || age !== null) && invalidFields.length === 0){
+          Site.renderUpdate(data);
       };
     });
   }
