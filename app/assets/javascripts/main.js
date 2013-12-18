@@ -6,6 +6,11 @@ $(document).ready(function(){
   Site.animateInheritanceCalculator();
   Site.setBackEvent();
   Site.setResubmitEvent();
+  $(document).foundation().foundation('abide', {
+    patterns: {
+      zip_code: /^.{0,5}$/
+    }
+  });
 });
 
 var Site = {
@@ -117,19 +122,20 @@ var Site = {
   setSubmitEvent: function() {
     $('#submit-entry').click(function(e){
       e.preventDefault();
-      var zip_code = $('#zip-code').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary = $('#salary').val(), assets = $('#assets').val(), inherited_assets = $('#inherited-assets').val(), salary_guess = $('#salary-guess').val(), wealth_guess = $('#wealth-guess').val(), self_wealth_descr = $('#self-wealth-descr').val(), self_happiness_descr = $('#self-happiness-descr').val(), age = $('#age').val();
+      var zip_code = $('#zip-code').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary = $('#salary').val(), assets = $('#assets').val(), inherited_assets = $('#inherited-assets').val(), salary_guess = $('#salary-guess').val(), wealth_guess = $('#wealth-guess').val(), self_wealth_descr = $('#self-wealth-descr').val(), self_happiness_descr = $('#self-happiness-descr').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]');
       var data = {zip_code: zip_code, race: race, gender: gender, education: education, salary: salary, assets: assets, inherited_assets: inherited_assets, salary_guess: salary_guess, wealth_guess: wealth_guess, self_happiness_descr: self_happiness_descr, self_wealth_descr: self_wealth_descr, age: age};
-      
-      $.ajax({
-        url: 'submit_entry',
-        type: 'POST',
-        data: data, 
-        success: function(){
-        }
-      });
-      Site.animateSubmit();
-      Site.renderGuessData(data);
-      Site.renderOutput(data)
+      if(invalidFields.length === 0){
+        $.ajax({
+          url: 'submit_entry',
+          type: 'POST',
+          data: data, 
+          success: function(){
+          }
+        });
+        Site.animateSubmit();
+        Site.renderGuessData(data);
+        Site.renderOutput(data)
+      };
     });
   },
 
@@ -143,9 +149,11 @@ var Site = {
   setResubmitEvent: function() {
     $('#resubmit-entry').click(function(e){
       e.preventDefault();
-      var zip_code = $('#zip-code').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary = $('#salary').val(), assets = $('#assets').val(), inherited_assets = $('#inherited-assets').val(), salary_guess = $('#salary-guess').val(), wealth_guess = $('#wealth-guess').val(), self_wealth_descr = $('#self-wealth-descr').val(), self_happiness_descr = $('#self-happiness-descr').val(), age = $('#age').val();
+      var zip_code = $('#zip-code').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary = $('#salary').val(), assets = $('#assets').val(), inherited_assets = $('#inherited-assets').val(), salary_guess = $('#salary-guess').val(), wealth_guess = $('#wealth-guess').val(), self_wealth_descr = $('#self-wealth-descr').val(), self_happiness_descr = $('#self-happiness-descr').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]');
       var data = {zip_code: zip_code, race: race, gender: gender, education: education, salary: salary, assets: assets, inherited_assets: inherited_assets, salary_guess: salary_guess, wealth_guess: wealth_guess, self_happiness_descr: self_happiness_descr, self_wealth_descr: self_wealth_descr, age: age};
-      Site.renderUpdate(data);
+      if(invalidFields.length === 0){
+        Site.renderUpdate(data);
+      };
     });
   }
 }

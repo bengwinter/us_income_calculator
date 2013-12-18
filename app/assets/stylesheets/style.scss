@@ -19,6 +19,14 @@
   }
 }
 
+#user-input-form {
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0;
+  }
+}
+
 #back-button-tool-tip {
   color: white;
   cursor: pointer;
@@ -156,6 +164,7 @@
 #button-wrapper {
   text-align: center;
   width: 100%;
+  display: inline-block;
 }
 
 .dropdown {
@@ -209,6 +218,12 @@
   display: inline-block;
 }
 
+.error {
+  font-family: "Alegreya Sans";
+  font-weight: 300;
+  font-size: 1.0rem;
+}
+
 #output {
   background-color: rgba(255, 255, 255, 1.0);
   height: 550px;
@@ -216,5 +231,9 @@
   display: none;
   color: white;
   margin-bottom: 25px;
+}
+
+.large-comma-dollar-sign {
+  font-size: 1.1rem;
 }
 

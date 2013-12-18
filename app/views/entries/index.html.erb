@@ -1,28 +1,38 @@
 <div id="user-input" class="large-12 columns">
-<form data-abide>
+<form id="user-input-form" data-abide>
+  <div id="all-user-input-fields">
   <div id="entry-form-financial" class="large-4 columns form-column right-border-column">
     <div class="entry-form-header-div">
       <h2 class="entry-form-header form-subheader"><span>F</span>INANCIAL &nbsp;<span>I</span>NFORMATION</h2>
     </div>
-      <label for='salary'>
+      <div>
+      <label>
         <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">
           <span class="entry-form-header-first-letter">S</span><span class="entry-form-header-rest">ALARY</span>
         </span>
       </label>
-        <input type='text' id='salary' required placeholder='Salary for 2013' required/>
+        <input type='number' id='salary' placeholder='Salary for 2013' required/>
+        <small class="error">A value is required and must be a number (do not include &nbsp;&nbsp;<span class="large-comma-dollar-sign">,</span> &nbsp;&nbsp;or &nbsp;&nbsp;<span class="large-comma-dollar-sign">$</span>).</small>
+      </div>
+      <div>
       <label>
         <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">
           <span class="entry-form-header-first-letter">A</span><span class="entry-form-header-rest">SSET</span> <span class="entry-form-header-first-letter">V</span><span class="entry-form-header-rest">ALUE</span>
         </span>
       </label>
-      <input type='text' id='assets' placeholder='Current Total Asset Value'></input>
+      <input type='number' id='assets' placeholder='Current Total Asset Value' required/>
+      <small class="error">A value is required and must be a number (do not include &nbsp;&nbsp;<span class="large-comma-dollar-sign">,</span> &nbsp;&nbsp;or &nbsp;&nbsp;<span class="large-comma-dollar-sign">$</span>).</small>
+      </div>
+      <div>
       <label id='inheritance-asset-label'>
         <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="test">
           <span class="entry-form-header-first-letter">I</span><span class="entry-form-header-rest">NHERITANCE</span> <span class="entry-form-header-first-letter">A</span><span class="entry-form-header-rest">SSET</span> <span class="entry-form-header-first-letter">V</span><span class="entry-form-header-rest">ALUE</span>
         </span>
       </label>
       <span id='inheritance-calculator-link'>(calc)</span>
-      <input type='text' id='inherited-assets' placeholder='Current Inheritance Asset Value'></input>
+      <input type='number' id='inherited-assets' placeholder='Current Inheritance Asset Value' required/>
+      <small class="error">A value is required and must be a number (do not include &nbsp;&nbsp;<span class="large-comma-dollar-sign">,</span> &nbsp;&nbsp;or &nbsp;&nbsp;<span class="large-comma-dollar-sign">$</span>).</small>
+      </div>
   </div>
   <div id="entry-form-demographic" class="large-4 columns form-column right-border-column">
     <div class="entry-form-header-div">
@@ -31,15 +41,17 @@
     <div class="row collapse">
       <div class="small-6 columns">
         <label><span>Z</span>IP <span>C</span>ODE</label>
-        <input type='text' id='zip-code' placeholder='Zip Code'></input>
+        <input type='number' id='zip-code' placeholder='Zip Code' pattern="zip_code" required/>
+        <small class="error">Zip Code is required and must be five digits</small>
       </div>
       <div class="small-4 columns">
         <label><span>A</span>GE</label>
-        <input type='text' id='age' placeholder='Age'></input>
+        <input type='number' id='age' placeholder='Age' required/>
+        <small class="error">Please enter a valid age</small>
       </div>
     </div>
     <label><span>E</span>DUCATION <span>L</span>EVEL</label>
-    <select class="dropdown" id='education-level'>
+    <select class="dropdown" id='education-level' required>
       <option value="" disabled selected>Education Level</option>
       <option value="no-highschool">No High School Diploma</option>
       <option value="highschool">High School Diploma</option>
@@ -47,24 +59,28 @@
       <option value="bachelors">Bachelor's Degree</option>
       <option value="advanced">Advanced Degree</option>
     </select>
+    <small class="error">Please select an education level</small>
+
     <div class="row collapse">
       <div class="small-5 columns">
         <label><span>R</span>ACE</label>
-        <select class="dropdown" id='race'>
+        <select class="dropdown" id='race' required>
           <option value="" disabled selected>Race</option>
           <option value="white">White</option>
           <option value="black">Black</option>
           <option value="latino">Latino</option>
           <option value="other">Other</option>
         </select>
+        <small class="error">Please select a race</small>
       </div>
       <div class="small-5 columns">
         <label><span>G</span>ENDER</label>
-        <select class="dropdown" id='gender'>
+        <select class="dropdown" id='gender' required>
           <option value="" disabled selected>Gender</option>
           <option value="female">Female</option>
           <option value="male">Male</option>
         </select>
+        <small class="error">Please select a gender</small>
       </div>
     </div>
   </div>
@@ -128,6 +144,7 @@
         </select>
       </div>
     </div>
+  </div>
   </div>
   <div id="button-wrapper">
     <button type="submit" id="submit-entry">SUBMIT</button>
