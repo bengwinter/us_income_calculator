@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 20131210215122) do
   enable_extension "plpgsql"
 
   create_table "entries", force: true do |t|
-    t.text     "zip_code"
+    t.text     "geo_zone"
+    t.text     "city_type"
     t.integer  "salary"
     t.integer  "assets"
     t.integer  "inherited_assets"
