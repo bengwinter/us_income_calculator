@@ -6,7 +6,11 @@ hash_ideal = {}
 
 CSV.foreach(Rails.root.join('lib','assets','2013_percentile_data.csv')) do |row|
   key = row.shift
-  hash_2013[key] = row
+  income_values = []
+  row.each do |x|
+    income_values << x.to_i
+  end
+  hash_2013[key] = income_values
 end
 
 # CSV.foreach(Rails.root.join('lib','assets','data_2000.csv') do |row|
