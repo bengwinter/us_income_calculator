@@ -15,9 +15,9 @@ class Entry < ActiveRecord::Base
 
 
 
-  # def find_percentile
-  #   DATA.min_by { x }
-  # end
+  def find_percentile
+    DATA_2013.min_by { x }
+  end
 
 end
 
