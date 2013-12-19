@@ -1,7 +1,8 @@
 class CreateEntries < ActiveRecord::Migration
   def change
     create_table :entries do |t|
-      t.text :zip_code
+      t.text :geo_zone
+      t.text :city_type
       t.integer :salary
       t.integer :assets
       t.integer :inherited_assets

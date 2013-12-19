@@ -41,12 +41,32 @@
     <div class="row collapse">
       <div class="small-6 columns">
         <label><span>Z</span>IP <span>C</span>ODE</label>
-        <input type='number' id='zip-code' placeholder='Zip Code' pattern="zip_code" required/>
-        <small class="error">Zip Code is required and must be five digits</small>
+        <select class="dropdown" id='geo-zone' required>
+          <option value="" disabled selected>Geographic Zone</option>
+          <option value="northeast">Northeast</option>
+          <option value="midwest">Midwest</option>
+          <option value="south">South</option>
+          <option value="west">West</option>
+        </select>
+        <small class="error">Please select a geographic zone</small>
       </div>
       <div class="small-4 columns">
         <label><span>A</span>GE</label>
-        <input type='number' id='age' placeholder='Age' required/>
+        <select class="dropdown" id='age' required>
+          <option value="" disabled selected>Age</option>
+          <option value="agerange1">15 to 24</option>
+          <option value="agerange2">25 to 29</option>
+          <option value="agerange3">30 to 34</option>
+          <option value="agerange4">35 to 39</option>
+          <option value="agerange5">40 to 44</option>
+          <option value="agerange6">45 to 49</option>
+          <option value="agerange7">50 to 54</option>
+          <option value="agerange8">55 to 59</option>
+          <option value="agerange9">60 to 64</option>
+          <option value="agerange10">65 to 69</option>
+          <option value="agerange11">70 to 74</option>
+          <option value="agerange12">75 and over</option>
+        </select>
         <small class="error">Please enter a valid age</small>
       </div>
     </div>
