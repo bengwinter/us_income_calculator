@@ -1,9 +1,10 @@
+require 'csv'
 hash_2013 = {}
 hash_2000 = {}
 hash_ideal = {}
 
 
-CSV.foreach(Rails.root.join('lib','assets','2013_percentile_data.csv') do |row|
+CSV.foreach(Rails.root.join('lib','assets','2013_percentile_data.csv')) do |row|
   key = row.shift
   hash_2013[key] = row
 end
