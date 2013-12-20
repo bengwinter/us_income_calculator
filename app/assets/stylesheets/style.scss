@@ -231,7 +231,7 @@
 }
 
 #output {
-  background-color: rgba(13, 60, 34, .6);
+  background-color: rgba(12, 72, 73, 1.000);
   height: 600px;
   display: none;
   color: rgba(0, 0, 0, 1.000);
@@ -246,4 +246,99 @@
   font-size: 1.1rem;
 }
 
+#output-header { 
+  font-size: 2.7rem;
+  color: rgba(172, 47, 9, 1.000);
 
+}
+
+#output-header-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+#main-output-container {
+  padding: 10px;
+  margin-botom: 25px;
+  h3 {
+    color: rgba(40, 149, 149, 1.000)
+  }
+  p {
+    margin: 5px 2px;
+    font-weight: 500;
+    color: rgba(203, 203, 203, 1.0000);
+  }
+  span {
+    font-weight: 700;
+    color: rgba(235, 235, 235, 1.0000);
+  }
+}
+
+#main-demographics-container {
+  padding: 10px;
+  margin-botom: 25px;
+  h3 {
+    color: rgba(40, 149, 149, 1.000)
+  }
+  p {
+    margin: 5px 2px;
+    font-weight: 500;
+    color: rgba(203, 203, 203, 1.0000);
+  } 
+  span {
+    font-weight: 700;
+    color: rgba(235, 235, 235, 1.0000);
+  }
+}
+
+#gender-specific-container {
+  padding: 10px;
+  margin-botom: 25px;
+  h3 {
+    color: rgba(40, 149, 149, 1.000)
+  }
+  p {
+    margin: 5px 2px;
+    font-weight: 500;
+    color: rgba(203, 203, 203, 1.0000);
+  } 
+  span {
+    font-weight: 700;
+    color: rgba(235, 235, 235, 1.0000);
+  }
+}
+
+#race-specific-container {
+  padding: 10px;
+  margin-botom: 25px;
+  h3 {
+    color: rgba(40, 149, 149, 1.000)
+  }
+  p {
+    margin: 5px 2px;
+    font-weight: 500;
+    color: rgba(203, 203, 203, 1.0000);
+  } 
+  span {
+    font-weight: 700;
+    color: rgba(235, 235, 235, 1.0000);
+  }
+}
+
+#gender-race-specific-container {
+  padding: 10px;
+  margin-botom: 25px;
+  h3 {
+    color: rgba(40, 149, 149, 1.000)
+  }
+  p {
+    margin: 5px 2px;
+    font-weight: 500;
+    color: rgba(203, 203, 203, 1.0000);
+  } 
+  span {
+    font-weight: 700;
+    color: rgba(235, 235, 235, 1.0000);
+  }
+}
