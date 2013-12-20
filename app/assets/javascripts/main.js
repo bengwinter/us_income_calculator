@@ -130,7 +130,7 @@ var Site = {
           });
           Site.animateSubmit();
           Site.renderGuessData(data);
-          Site.renderOutput(data)
+          // Site.renderOutput(data)
         };
     });
   },
