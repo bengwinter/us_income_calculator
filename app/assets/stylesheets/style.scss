@@ -207,6 +207,10 @@
   width: 100%;
   display: none;
 }
+.disabled-input-tooltip {
+  color: rgba(79, 5, 9, 1.0000);
+}
+
 
 .inheritance-calculator {
   background-color: rgba(245, 245, 245, 1.0000);
@@ -228,7 +232,7 @@
 
 #output {
   background-color: rgba(255, 255, 255, 1.0);
-  height: 550px;
+  height: 600px;
   background: black;
   display: none;
   color: white;
