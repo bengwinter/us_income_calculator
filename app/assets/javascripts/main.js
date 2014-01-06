@@ -3,7 +3,6 @@ $(document).ready(function(){
   Site.sizeForm();
   Site.pageResizeListeners();
   Site.animateAbout();
-  Site.animateInheritanceCalculator();
   Site.setBackEvent();
   Site.setResubmitEvent();
 });
@@ -43,7 +42,6 @@ var Site = {
     $('#resubmit-entry').show();
     $('#back-button').show();
     $('#output').fadeIn();
-    $('#inheritance-calculator-container').removeClass('display-calc').hide();
   },
 
   animateBack: function() {
@@ -56,7 +54,6 @@ var Site = {
     $('#resubmit-entry').hide();
     $('#back-button').hide();
     $('#output').hide();
-    $('#inheritance-calculator-container').removeClass('display-calc').hide();
     $('#geo-zone').val('');
     $('#city-type').val('');
     $('#race').val('');
@@ -71,17 +68,6 @@ var Site = {
     $('#self-happiness-descr').val('');
     $('#age').val('');
     $('#output').empty();
-  },
-
-  animateInheritanceCalculator: function() {
-    $('#inheritance-calculator-link').click(function(e){
-      e.preventDefault();
-      if($('#inheritance-calculator-container').hasClass('display-calc')) {
-          $('#inheritance-calculator-container').removeClass('display-calc').hide();
-        } else {
-          $('#inheritance-calculator-container').addClass('display-calc').show();
-        }
-    });
   },
 
   renderGuessData: function(data) {

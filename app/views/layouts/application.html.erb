@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>U.S. Wealth Calculator</title>
+    <title>U.S. Income Calculator</title>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
@@ -12,8 +12,8 @@
   <body>
     <div id="container">
       <div id="header-container">
-        <h1>U.S. Wealth Calculator</h1>
-        <p id="paragraph-header">The disparity in income and wealth distribution in the United States has rapidly increased over the last 15 years. Enter in your information to see where you stand in the United States wealth chain</p>
+        <h1>U.S. Income Calculator</h1>
+        <p id="paragraph-header">The disparity in income distribution in the United States has rapidly increased over the last 15 years. Enter in your information to see where you stand in the United States income chain</p>
       </div>
       <div id="error-messages">
       </div>
@@ -23,7 +23,7 @@
       <ul id="bottombar-list">
         <li>Created by <span class="bottom-bar-link"><%= link_to "Ben Winter", "http://www.benwinter.co", {class: "bottom-bar-link"} %></span></li>
         <li id='about'><a class="bottom-bar-link">About</a></li>
-        <li>&copy U.S. Wealth Calculator, 2013</li>
+        <li>&copy U.S. Income Calculator, 2013</li>
       </ul>
     </div>
     <%= javascript_include_tag "application" %>
