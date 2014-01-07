@@ -75,12 +75,12 @@ class EntriesController < ApplicationController
       p = 0
       percentiles = DATA_2013[key]
       l = percentiles.length
-      if @income > percentiles[(l-1)]
+      if @income_2013 > percentiles[(l-1)]
         p = 99
-      elsif @income <= percentiles[0]
+      elsif @income_2013 <= percentiles[0]
         p = 1
       else
-        while @income > percentiles[p]
+        while @income_2013 > percentiles[p]
           p += 1
         end
       end
@@ -89,7 +89,8 @@ class EntriesController < ApplicationController
       end
       @output[key] = p
     end
-    Entry.create(geo_zone: params["geo_zone"], city_type: params["city_type"], race: params["race"], gender: params["gender"], education: params["education"], age: params["age"], salary_2013: params["salary_2013"], salary_guess_2013: params["salary_guess_2013"], salary_2000: params["salary_2000"], salary_guess_2000: params["salary_guess_2000"], income_happiness_2013: params["income_happiness_2013"], overall_happiness_2013: params["overall_happiness_2013"], income_happiness_2000: params["income_happiness_2000"], overall_happiness_2000: params["overall_happiness_2000"])
+    
+    Entry.create(geo_zone: params["geo_zone"], city_type: params["city_type"], race: params["race"], gender: params["gender"], education: params["education"], age: params["age"], salary_2013: params["salary_2013"], salary_guess_2013: params["salary_guess_2013"], income_happiness_2013: params["income_happiness_2013"], overall_happiness_2013: params["overall_happiness_2013"], salary_2000: params["salary_2000"], salary_guess_2000: params["salary_guess_2000"], income_happiness_2000: params["income_happiness_2000"], overall_happiness_2000: params["overall_happiness_2000"])
     respond_to do |format|
         format.js
     end
