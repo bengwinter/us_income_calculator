@@ -106,7 +106,7 @@ var Site = {
       e.preventDefault();
       var geo_zone = $('#geo-zone').val(), city_type = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary_2013 = $('#salary-2013').val(), salary_guess_2013 = $('#salary-guess-2013').val(), income_happiness_2013 = $('#income-happiness-2013').val(), overall_happiness_2013 = $('#overall-happiness-2013').val(), salary_2000 = $('#salary-2000').val(), salary_guess_2000 = $('#salary-guess-2000').val(), income_happiness_2000 = $('#income-happiness-2000').val(), overall_happiness_2000 = $('#overall-happiness-2000').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]');
       var data = {geo_zone: geo_zone, city_type: city_type, race: race, gender: gender, education: education, age: age, salary_2013: salary_2013, salary_guess_2013: salary_guess_2013, income_happiness_2013: income_happiness_2013, overall_happiness_2013: overall_happiness_2013, salary_2000: salary_2000, salary_guess_2000: salary_guess_2000, income_happiness_2000: income_happiness_2000, overall_happiness_2000: overall_happiness_2000};
-      if((geo_zone !== null && city_type !== null && race !== null && gender !== null && education !== null && salary !== "" && age !== null) && invalidFields.length === 0) {
+      if((geo_zone !== null && city_type !== null && race !== null && gender !== null && education !== null && salary_2013 !== "" && salary_guess_2013 !== "" && salary_2000 !== "" && salary_guess_2000 !== "" && age !== null) && invalidFields.length === 0) {
           $.ajax({
             url: 'submit_entry',
             type: 'POST',
@@ -115,7 +115,7 @@ var Site = {
             }
           });
           Site.animateSubmit();
-          Site.renderGuessData(data);
+          // Site.renderGuessData(data);
           // Site.renderOutput(data)
         };
     });
@@ -133,7 +133,7 @@ var Site = {
       e.preventDefault();
       var geo_zone = $('#geo-zone').val(), city_type = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary_2013 = $('#salary-2013').val(), salary_guess_2013 = $('#salary-guess-2013').val(), income_happiness_2013 = $('#income-happiness-2013').val(), overall_happiness_2013 = $('#overall-happiness-2013').val(), salary_2000 = $('#salary-2000').val(), salary_guess_2000 = $('#salary-guess-2000').val(), income_happiness_2000 = $('#income-happiness-2000').val(), overall_happiness_2000 = $('#overall-happiness-2000').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]');
       var data = {geo_zone: geo_zone, city_type: city_type, race: race, gender: gender, education: education, age: age, salary_2013: salary_2013, salary_guess_2013: salary_guess_2013, income_happiness_2013: income_happiness_2013, overall_happiness_2013: overall_happiness_2013, salary_2000: salary_2000, salary_guess_2000: salary_guess_2000, income_happiness_2000: income_happiness_2000, overall_happiness_2000: overall_happiness_2000};
-      if((geo_zone !== null && city_type !== null && race !== null && gender !== null && education !== null && salary !== "" && age !== null) && invalidFields.length === 0) {
+      if((geo_zone !== null && city_type !== null && race !== null && gender !== null && education !== null && salary_2013 !== "" && salary_guess_2013 !== "" && salary_2000 !== "" && salary_guess_2000 !== "" && age !== null) && invalidFields.length === 0) {
           Site.renderUpdate(data);
       };
     });
