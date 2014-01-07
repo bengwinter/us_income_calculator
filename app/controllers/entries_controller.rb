@@ -90,7 +90,11 @@ class EntriesController < ApplicationController
       @output[key] = p
     end
     
-    Entry.create(geo_zone: params["geo_zone"], city_type: params["city_type"], race: params["race"], gender: params["gender"], education: params["education"], age: params["age"], salary_2013: params["salary_2013"], salary_guess_2013: params["salary_guess_2013"], income_happiness_2013: params["income_happiness_2013"], overall_happiness_2013: params["overall_happiness_2013"], salary_2000: params["salary_2000"], salary_guess_2000: params["salary_guess_2000"], income_happiness_2000: params["income_happiness_2000"], overall_happiness_2000: params["overall_happiness_2000"])
+    if params["submitType"] == 'submit'
+      Entry.create(geo_zone: params["geo_zone"], city_type: params["city_type"], race: params["race"], gender: params["gender"], education: params["education"], age: params["age"], salary_2013: params["salary_2013"], salary_guess_2013: params["salary_guess_2013"], income_happiness_2013: params["income_happiness_2013"], overall_happiness_2013: params["overall_happiness_2013"], salary_2000: params["salary_2000"], salary_guess_2000: params["salary_guess_2000"], income_happiness_2000: params["income_happiness_2000"], overall_happiness_2000: params["overall_happiness_2000"])
+    elsif params["submitType"] == 'resubmit'
+    end
+    
     respond_to do |format|
         format.js
     end
