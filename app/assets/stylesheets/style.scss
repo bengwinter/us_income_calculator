@@ -19,12 +19,48 @@
   }
 }
 
+.side-column {
+  height: 600px;
+}
+
 #user-input-form {
   input[type=number]::-webkit-inner-spin-button, 
   input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
     margin: 0;
   }
+}
+
+.input-container-min {
+  padding-right: 5px;
+}
+
+.demographic-input-container {
+  padding: 5px;
+}
+
+.happiness-input-container {
+  padding: 5px;
+}
+
+.happiness-input-container-min {
+  display: none;
+}
+
+.salary-input-container {
+  padding: 22px 5px 5px 5px;
+}
+
+.salary-input-container-min {
+  padding: 5px;
+}
+
+.salary-guess-input-container {
+  padding: 22px 5px 5px 5px;
+}
+
+.salary-guess-input-container-min {
+  padding: 5px;
 }
 
 #back-button-tool-tip {
@@ -40,10 +76,6 @@
 
 .entry-form-header-rest {
   font-weight: 500;
-}
-
-.right-border-column {
-  border-right: 1px solid rgba(203, 203, 203, 1.0000);
 }
 
 .entry-form-header-div {
@@ -66,7 +98,6 @@
   }
 }
 
-
 #paragraph-header {
   margin-top: -10px;
 }
@@ -79,8 +110,8 @@
 }
 
 #resubmit-entry {
-  margin: 26px 10px 10px 10px;
-  padding: 17px 23px;
+  margin: 1px;
+  padding: 20px 46px;
   background-color: rgba(0, 86, 115, 1.0000);
   display: none;
   position: left;
@@ -89,11 +120,12 @@
 #min-button-wrapper {
   width: 100%;
   padding: 5px;
+  margin-top: -13px;
 }
 
 #back-button {
-  margin: 26px 10px 10px 10px;
-  padding: 17px 18px;
+  margin: 1px;
+  padding: 20px 30px;
   background-color: rgba(115, 15, 22, 1.0000);
   display: none;
   float: right;
@@ -191,17 +223,8 @@
   }
 }
 
-#entry-form-guesses-static {
-  display: none;
-  margin-bottom: -15px;
-}
-
 .disabled-input-tooltip {
   color: rgba(79, 5, 9, 1.0000);
-}
-
-#inheritance-asset-label {
-  display: inline-block;
 }
 
 .error {
@@ -210,12 +233,18 @@
   font-size: 1.0rem;
 }
 
-#output {
-  background-color: rgba(12, 72, 73, 1.000);
-  height: 600px;
+
+#output-container {
+  height: 636px;
+  border: 1px solid rgba(0, 0, 0, 1.0000);
   display: none;
+  padding: 5px;
   color: rgba(0, 0, 0, 1.000);
   margin-bottom: 25px;
+}
+
+#data-output {
+  background-color: rgba(12, 72, 73, 1.000);
 }
 
 .granular-percentile-title {
@@ -241,6 +270,12 @@
   text-align: center;
 }
 
+
+.social-media-button-wrapper {
+  display: inline;
+  margin: 0px 5px;
+}
+
 .social-media-button {
   height: 50px;
   width: 125px;
@@ -257,6 +292,15 @@
 
 #tweet-button {
   background-color: rgba(64, 153, 255, 1.0000);
+}
+
+.form-input-container {
+  border: 1px solid rgba(13, 60, 34, 1.0000);
+  padding: 5px 10px 10px 10px;
+}
+
+#demographic-entry-container {
+  margin-top: 10px; 
 }
 
 #main-output-container {
@@ -343,3 +387,21 @@
     color: rgba(235, 235, 235, 1.0000);
   }
 }
+
+.year-label-container {
+  text-align: center;
+}
+
+.year-label {
+  margin: 0px 0px -10px 0px;
+}
+
+#2000-year-label {
+  margin-top: 15px;
+}
+
+#2013-year-label {
+  margin-top: -5px;
+}
+
+

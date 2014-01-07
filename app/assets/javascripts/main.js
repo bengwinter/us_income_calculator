@@ -5,6 +5,8 @@ $(document).ready(function(){
   Site.animateAbout();
   Site.setBackEvent();
   Site.setResubmitEvent();
+  Site.setTweetEvent();
+  Site.setFacebookEvent();
 });
 
 var Site = {
@@ -34,79 +36,64 @@ var Site = {
   },
 
   animateSubmit: function() {
-    $('#user-input').removeClass('large-12').addClass('large-3');
-    $('.form-column').removeClass('large-4').removeClass('right-border-column').addClass('large-12').addClass('form-column-min');
+    $('#input-output-container').addClass('large-12').addClass('columns');
+    $('#input-container').addClass('large-3').addClass('columns').addClass('input-container-min');
+    $('.salary-input-container').removeClass('large-5').addClass('large-7').addClass('salary-input-container-min').removeClass('salary-input-container');
+    $('.salary-guess-input-container').removeClass('large-3').addClass('large-5').addClass('salary-guess-input-container-min').removeClass('salary-guess-input-container');
+    $('#salary-guess-2000').attr('readonly', true);
+    $('#salary-guess-2013').attr('readonly', true);
+    $('#user-input').removeClass('large-6');
+    $('#output-container').fadeIn();
     $('.form-subheader').removeClass('entry-form-header').addClass('entry-form-header-min')
+    $('.salary-input-container').removeClass('large-5').addClass('large-8');
+    $('.salary-guess-input-container').removeClass('large-3').addClass('large-4');
+    $('.happiness-input-container').addClass('happiness-input-container-min');
+    $('.side-column').removeClass('large-3').removeClass('columns').hide();
     $('#submit-entry').hide();
-    $('#entry-form-guesses').hide();
     $('#resubmit-entry').show();
     $('#back-button').show();
-    $('#output').fadeIn();
   },
 
+
   animateBack: function() {
-    $('#user-input').addClass('large-12').removeClass('large-3');
-    $('.form-column').addClass('large-4').addClass('right-border-column').removeClass('large-12').removeClass('form-column-min');
+    $('#input-output-container').removeClass('large-12').removeClass('columns');
+    $('#input-container').removeClass('large-3').removeClass('columns').removeClass('input-container-min');
+    $('.salary-input-container-min').addClass('large-5').removeClass('large-7').addClass('salary-input-container').removeClass('salary-input-container-min');
+    $('.salary-guess-input-container-min').removeClass('large-5').addClass('large-3').addClass('salary-guess-input-container').removeClass('salary-guess-input-container-min');
+    $('#salary-guess-2000').attr('readonly', false);
+    $('#salary-guess-2013').attr('readonly', false);
+    $('#user-input').addClass('large-6');
     $('.form-subheader').addClass('entry-form-header').removeClass('entry-form-header-min')
+    $('.salary-input-container').removeClass('large-8').addClass('large-5');
+    $('.salary-guess-input-container').removeClass('large-4').addClass('large-3');
+    $('.happiness-input-container').removeClass('happiness-input-container-min');
+    $('.side-column').addClass('large-3').addClass('columns').show();
     $('#submit-entry').show();
-    $('#entry-form-guesses-static').removeClass('entry-form-guesses-static-show').hide();
-    $('#entry-form-guesses').show();
     $('#resubmit-entry').hide();
     $('#back-button').hide();
-    $('#output').hide();
+    $('#output-container').hide();
     $('#geo-zone').val('');
     $('#city-type').val('');
     $('#race').val('');
     $('#gender').val('');
-    $('#education-level').val('');
-    $('#salary').val('');
-    $('#assets').val('');
-    $('#inherited-assets').val('');
-    $('#salary-guess').val('');
-    $('#wealth-guess').val('');
-    $('#self-wealth-descr').val('');
-    $('#self-happiness-descr').val('');
     $('#age').val('');
-    $('#output').empty();
-  },
-
-  renderGuessData: function(data) {
-    var salaryGuess = data["salary_guess"], wealthGuess = "N/A", noEntry = "No Guess";
-    if(salaryGuess !== "" && wealthGuess !== "") {
-      $('#salary-percentile-guess').append(salaryGuess);
-      $('#wealth-percentile-guess').append(wealthGuess);
-      $('#entry-form-guesses-static').addClass('entry-form-guesses-static-show').show();
-    } else if(salaryGuess === "" && wealthGuess !== "") {
-      $('#salary-percentile-guess').append(noEntry);
-      $('#wealth-percentile-guess').append(wealthGuess);
-      $('#entry-form-guesses-static').addClass('entry-form-guesses-static-show').show();
-    } else if(salaryGuess !== "" && wealthGuess === "") {
-      $('#salary-percentile-guess').append(salaryGuess);
-      $('#wealth-percentile-guess').append(noEntry);
-      $('#entry-form-guesses-static').addClass('entry-form-guesses-static-show').show();
-    } else {
-      $('#entry-form-guesses-static').removeClass('entry-form-guesses-static-show').hide();
-    };
-  
-  },
-
-  renderOutput: function(data) {
-    var html = "<ul>Data<li>Salary: " + data["salary"] + "</li><li>Zip Code: " + data["geo_zone"] + "</li><li>City Type: " + data["city_type"] + "</li><li>Race: " + data["race"] + "</li><li>Gender: " + data["gender"] + "</li><li>Education: " + data["education"] + "</li><li>Age: " + data["age"] + "</li><li>Salary Guess: " + data["salary_guess"] + "</li><li>Happiness Rating: " + data["self_happiness_descr"] + "</li><li>Wealth Happiness Rating: " + data["self_wealth_descr"] + "</li></ul>"
-    $('#output').append(html);
-  },
-
-  renderUpdate: function(data) {
-    $('#output').empty();
-    var updated_html = "<ul>Data<li>Salary: " + data["salary"] + "</li><li>Geo Zone: " + data["geo_zone"] + "</li><li>City Type: " + data["city_type"] + "</li><li>Race: " + data["race"] + "</li><li>Gender: " + data["gender"] + "</li><li>Education: " + data["education"] + "</li><li>Age: " + data["age"] + "</li><li>Salary Guess: " + data["salary_guess"] + "</li><li>Happiness Rating: " + data["self_happiness_descr"] + "</li><li>Wealth Happiness Rating: " + data["self_wealth_descr"] + "</li></ul>"
-    $('#output').append(updated_html);
+    $('#education-level').val('');
+    $('#salary-2013').val('');
+    $('#salary-guess-2013').val('');
+    $('#income-happiness-2013').val('');
+    $('#overall-happiness-2013').val('');
+    $('#salary-2000').val('');
+    $('#salary-guess-2000').val('');
+    $('#income-happiness-2000').val('');
+    $('#overall-happiness-2000').val('');
   },
 
   setSubmitEvent: function() {
     $('#submit-entry').click(function(e){
       e.preventDefault();
-      var geo_zone = $('#geo-zone').val(), city_type = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary = $('#salary').val(), salary_guess = $('#salary-guess').val(), self_wealth_descr = $('#self-wealth-descr').val(), self_happiness_descr = $('#self-happiness-descr').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]'), assets = $('#assets').val(), inherited_assets = $('#inherited-assets').val(), wealth_guess = $('#wealth-guess').val();
-      var data = {geo_zone: geo_zone, assets: assets, inherited_assets: inherited_assets, wealth_guess: wealth_guess, city_type: city_type, race: race, gender: gender, education: education, salary: salary, salary_guess: salary_guess, self_happiness_descr: self_happiness_descr, self_wealth_descr: self_wealth_descr, age: age};
-      if((geo_zone !== null && city_type !== null && race !== null && gender !== null && education !== null && salary !== "" && age !== null) && invalidFields.length === 0) {
+      var geo_zone = $('#geo-zone').val(), city_type = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary_2013 = $('#salary-2013').val(), salary_guess_2013 = $('#salary-guess-2013').val(), income_happiness_2013 = $('#income-happiness-2013').val(), overall_happiness_2013 = $('#overall-happiness-2013').val(), salary_2000 = $('#salary-2000').val(), salary_guess_2000 = $('#salary-guess-2000').val(), income_happiness_2000 = $('#income-happiness-2000').val(), overall_happiness_2000 = $('#overall-happiness-2000').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]'), submitType = 'submit';
+      var data = {geo_zone: geo_zone, city_type: city_type, race: race, gender: gender, education: education, age: age, salary_2013: salary_2013, salary_guess_2013: salary_guess_2013, income_happiness_2013: income_happiness_2013, overall_happiness_2013: overall_happiness_2013, salary_2000: salary_2000, salary_guess_2000: salary_guess_2000, income_happiness_2000: income_happiness_2000, overall_happiness_2000: overall_happiness_2000, submitType: submitType};
+      if((geo_zone !== null && city_type !== null && race !== null && gender !== null && education !== null && salary_2013 !== "" && salary_guess_2013 !== "" && salary_2000 !== "" && salary_guess_2000 !== "" && age !== null) && invalidFields.length === 0) {
           $.ajax({
             url: 'submit_entry',
             type: 'POST',
@@ -115,8 +102,6 @@ var Site = {
             }
           });
           Site.animateSubmit();
-          Site.renderGuessData(data);
-          // Site.renderOutput(data)
         };
     });
   },
@@ -131,11 +116,37 @@ var Site = {
   setResubmitEvent: function() {
     $('#resubmit-entry').click(function(e){
       e.preventDefault();
-      var geo_zone = $('#geo-zone').val(), city_type = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary = $('#salary').val(), salary_guess = $('#salary-guess').val(), self_wealth_descr = $('#self-wealth-descr').val(), self_happiness_descr = $('#self-happiness-descr').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]'), assets = $('#assets').val(), inherited_assets = $('#inherited-assets').val(), wealth_guess = $('#wealth-guess').val();
-      var data = {geo_zone: geo_zone, city_type: city_type, race: race, gender: gender, education: education, salary: salary, salary_guess: salary_guess, self_happiness_descr: self_happiness_descr, self_wealth_descr: self_wealth_descr, age: age, assets: assets, inherited_assets: inherited_assets, wealth_guess: wealth_guess};
-      if((geo_zone !== null && city_type !== null && race !== null && gender !== null && education !== null && salary !== "" && age !== null) && invalidFields.length === 0) {
-          Site.renderUpdate(data);
+      var geo_zone = $('#geo-zone').val(), city_type = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary_2013 = $('#salary-2013').val(), salary_guess_2013 = $('#salary-guess-2013').val(), income_happiness_2013 = $('#income-happiness-2013').val(), overall_happiness_2013 = $('#overall-happiness-2013').val(), salary_2000 = $('#salary-2000').val(), salary_guess_2000 = $('#salary-guess-2000').val(), income_happiness_2000 = $('#income-happiness-2000').val(), overall_happiness_2000 = $('#overall-happiness-2000').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]'), submitType = 'resubmit';
+      var data = {geo_zone: geo_zone, city_type: city_type, race: race, gender: gender, education: education, age: age, salary_2013: salary_2013, salary_guess_2013: salary_guess_2013, income_happiness_2013: income_happiness_2013, overall_happiness_2013: overall_happiness_2013, salary_2000: salary_2000, salary_guess_2000: salary_guess_2000, income_happiness_2000: income_happiness_2000, overall_happiness_2000: overall_happiness_2000, submitType: submitType};
+      if((geo_zone !== null && city_type !== null && race !== null && gender !== null && education !== null && salary_2013 !== "" && salary_guess_2013 !== "" && salary_2000 !== "" && salary_guess_2000 !== "" && age !== null) && invalidFields.length === 0) {
+          $.ajax({
+            url: 'submit_entry',
+            type: 'POST',
+            data: data,
+            success: function(){
+            }
+          });
       };
     });
-  }
+  },
+
+  setTweetEvent: function() {
+    $('#tweet-button').click(function(e){
+      e.preventDefault();
+      var overallPercentile = $('#all-percentile-output').html();
+      var tweetText = 'I ranked in the ' + overallPercentile + ' percentile. Find your ranking at www.usincomecalculator.com #incomeinequality';
+      var tweetUrl = "https://twitter.com/share?text=" + encodeURIComponent(tweetText);
+      window.open(tweetUrl, '_blank', 'height=300,width=600');
+    });
+  },
+
+   setFacebookEvent: function() {
+    $('#facebook-button').click(function(e){
+      e.preventDefault();
+      var overallPercentile = $('#all-percentile-output').html();
+      var facebookText = 'I ranked in the ' + overallPercentile + ' percentile. Find your ranking at www.usincomecalculator.com #incomeinequality';
+      var facebookUrl = "https://twitter.com/share?text=" + encodeURIComponent(facebookText);
+      window.open(facebookUrl, '_blank', 'height=300,width=600');
+    });
+  },
 }

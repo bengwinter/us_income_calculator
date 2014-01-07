@@ -1,35 +1,18 @@
 class Entry < ActiveRecord::Base
   validates :geo_zone, presence: true
   validates :city_type, presence: true
-  validates :salary, presence: true, numericality: true
   validates :age, presence: true
   validates :race, presence: true
   validates :gender, presence: true
   validates :education, presence: true
-  validates :self_wealth_descr, presence: true
-  validates :self_happiness_descr, presence: true
-  validates :salary_guess, presence: true
-  # validates :wealth_guess, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
-  # validates :assets, presence: true, numericality: true
-  # validates :inherited_assets, presence: true, numericality: true
-  # for number validation ", numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 10 }""
-
-  
-  # def self.find_percentile(key, income)
-  #   percentiles = DATA_2013[key]
-  #   i = 0
-  #   length = percentiles.length
-  #   if income > percentiles[(length-1)]
-  #     i = 99
-  #   elsif income <= percentiles[0]
-  #     i = 1
-  #   else
-  #     while income > percentiles[i]
-  #         i += 1
-  #     end
-  #   end
-  #   return i
-  # end
+  validates :salary_2013, presence: true, numericality: true
+  validates :salary_guess_2013, presence: true
+  validates :income_happiness_2013, presence: true
+  validates :overall_happiness_2013, presence: true
+  validates :salary_2000, presence: true
+  validates :salary_guess_2000, presence: true
+  validates :income_happiness_2000, presence: true
+  validates :overall_happiness_2000, presence: true
 
 end
   
