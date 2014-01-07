@@ -1,9 +1,9 @@
-<div id="input" class="row">
-  <div id="left-side-column" class="side-column large-3 columns">
+<div id="input-container">
+  <div class="large-3 columns side-column" id="left-column">
   </div>
   <div id="user-input" class="large-6 columns">
     <form id="user-input-form" data-abide>
-      <div class="large-6 columns">
+      <div id="financial-entry-container" class="form-input-container">
         <div class="entry-form-header-div">
           <h2 class="entry-form-header form-subheader"><span>F</span>INANCIAL &nbsp;<span>I</span>NFORMATION</h2>
         </div>
@@ -48,9 +48,11 @@
                 <span class="entry-form-header-first-letter">P</span><span class="entry-form-header-rest">ERCENTILE</span> <span class="entry-form-header-first-letter">G</span><span class="entry-form-header-rest">UESS</span>
               </span>
             </label>
-            <input disabled= 'true' type='text' id='wealth-guess' placeholder='Guess your percentile'></input>
+            <input type='text' id='wealth-guess' placeholder='Guess your percentile'></input>
           </div>
         </div>
+      </div>
+      <div id="demographic-entry-container" class="form-input-container">
         <div class="entry-form-header-div">
           <h2 class="entry-form-header form-subheader"><span>D</span>EMOGRAPHIC &nbsp;<span>I</span>NFORMATION</h2>
         </div>
@@ -141,9 +143,10 @@
       </div>
     </form>
   </div>
-  <div id="right-side-column" class="side-column large-3 columns">
+  <div class="large-3 columns side-column" id="right-column">
   </div>
 </div>
+
 <div id="output">
   <div class="row" id="social-media-links-container">
     <p>Share your results on: </p>
