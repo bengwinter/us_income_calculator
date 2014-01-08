@@ -18,16 +18,17 @@
                   <span class="entry-form-header-first-letter">S</span><span class="entry-form-header-rest">ALARY</span>
                 </span>
               </label>
-              <input type='number' id='salary-2013' placeholder='Salary in 2013' required/>
-              <small class="error">A value is required and must be a number (do not include &nbsp;&nbsp;<span class="large-comma-dollar-sign">,</span> &nbsp;&nbsp;or &nbsp;&nbsp;<span class="large-comma-dollar-sign">$</span>).</small>
+              <input type='text' id='salary-2013' placeholder='Salary in 2013' pattern="^\+?(0|[1-9]\d*)$" required/>
+              <small class="error">A numeric value is required and must be an integer. Please do not include &nbsp;&nbsp;<span class="large-comma-dollar-sign">,</span> &nbsp;&nbsp;or &nbsp;&nbsp;<span class="large-comma-dollar-sign">$</span>. (For example, please enter <span class="large-comma-dollar-sign">$</span>10,000 as 10000)</small>
             </div>
             <div class="large-3 columns salary-guess-input-container">
               <label>
-                <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="Please guess what percentile you think you belong to in comparison to the entire United States population over 15. Please enter a number between 1 and 99. For example, if you believe your income is higher than a quarter of the country, please enter 25. (Note: after your first submission you will not be able to enter a new guess)">        
+                <span data-tooltip class="has-tip" data-options="disable_for_touch:true" title="Please guess what percentile you think you belong to in comparison to the entire United States population over 15. Please enter a number between 1 and 99. For example, if you believe your income is higher than a quarter of the country, please enter 25. (Note: after your first submission you will not be able to enter a new guess)">
                   <span class="entry-form-header-first-letter">P</span><span class="entry-form-header-rest">ERCENTILE</span> <span class="entry-form-header-first-letter">G</span><span class="entry-form-header-rest">UESS</span>
                 </span>
               </label>
-              <input type='number' id='salary-guess-2013' placeholder='Guess your percentile'></input>
+              <input type='text' id='salary-guess-2013' placeholder='Guess your percentile' pattern="^[1-9][0-9]{0,1}$" required/>
+              <small class="error">A number between 1 and 99 is required.</small>
             </div>
             <div class="large-2 columns happiness-input-container">
               <label>
@@ -80,8 +81,8 @@
                   <span class="entry-form-header-first-letter">S</span><span class="entry-form-header-rest">ALARY</span> 
                 </span>
               </label>
-              <input type='number' id='salary-2000' placeholder='Salary in 2000' required/>
-              <small class="error">A value is required and must be a number (do not include &nbsp;&nbsp;<span class="large-comma-dollar-sign">,</span> &nbsp;&nbsp;or &nbsp;&nbsp;<span class="large-comma-dollar-sign">$</span>).</small>
+              <input type='text' id='salary-2000' placeholder='Salary in 2000' pattern="^\+?(0|[1-9]\d*)$" required/>
+              <small class="error">A numeric value is required and must be an integer. Please do not include &nbsp;&nbsp;<span class="large-comma-dollar-sign">,</span> &nbsp;&nbsp;or &nbsp;&nbsp;<span class="large-comma-dollar-sign">$</span>. (For example, please enter <span class="large-comma-dollar-sign">$</span>10,000 as 10000)</small>
             </div>
             <div class="large-3 columns salary-guess-input-container">
               <label>
@@ -89,7 +90,8 @@
                   <span class="entry-form-header-first-letter">P</span><span class="entry-form-header-rest">ERCENTILE</span> <span class="entry-form-header-first-letter">G</span><span class="entry-form-header-rest">UESS</span>
                 </span>
               </label>
-              <input type='number' id='salary-guess-2000' placeholder='Guess your percentile'></input>
+              <input type='text' id='salary-guess-2000' placeholder='Guess your percentile' pattern="^[1-9][0-9]{0,1}$" required/>
+              <small class="error">A number between 1 and 99 is required.</small>
             </div>
             <div class="large-2 columns happiness-input-container">
               <label>

@@ -118,7 +118,7 @@ var Site = {
   
   setResubmitEvent: function() {
     $('#user-input-form')
-      .on('invalid', function () {
+      .on('invalid', function() {
         var invalidFields = $(this).find('[data-invalid]');
         console.log(invalidFields);
       })
