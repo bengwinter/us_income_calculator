@@ -7,12 +7,8 @@ class Entry < ActiveRecord::Base
   validates :education, presence: true
   validates :salary_2013, presence: true, numericality: true
   validates :salary_guess_2013, presence: true
-  validates :income_happiness_2013, presence: true
-  validates :overall_happiness_2013, presence: true
   validates :salary_2000, presence: true
   validates :salary_guess_2000, presence: true
-  validates :income_happiness_2000, presence: true
-  validates :overall_happiness_2000, presence: true
 
 end
   
