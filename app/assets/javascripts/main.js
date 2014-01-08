@@ -5,9 +5,11 @@ $(document).ready(function(){
   Site.animateAbout();
   Site.setBackEvent();
   Site.setResubmitEvent();
-  Site.setTweetEvent();
+  Site.setTweetShareEvent();
   Site.setFacebookEvent();
 });
+
+$(document).foundation('abide', 'events');
 
 var Site = {
   sizeForm: function() {
@@ -87,24 +89,28 @@ var Site = {
     $('#income-happiness-2000').val('');
     $('#overall-happiness-2000').val('');
   },
+  
 
   setSubmitEvent: function() {
-    $('#submit-entry').click(function(e){
-      e.preventDefault();
-      var geoZone = $('#geo-zone').val(), cityType = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary2013 = $('#salary-2013').val(), salaryGuess2013 = $('#salary-guess-2013').val(), incomeHappiness2013 = $('#income-happiness-2013').val(), overallHappiness2013 = $('#overall-happiness-2013').val(), salary2000 = $('#salary-2000').val(), salaryGuess2000 = $('#salary-guess-2000').val(), incomeHappiness2000 = $('#income-happiness-2000').val(), overallHappiness2000 = $('#overall-happiness-2000').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]'), submitType = 'submit';
-      var data = {geo_zone: geoZone, city_type: cityType, race: race, gender: gender, education: education, age: age, salary_2013: salary2013, salary_guess_2013: salaryGuess2013, income_happiness_2013: incomeHappiness2013, overall_happiness_2013: overallHappiness2013, salary_2000: salary2000, salary_guess_2000: salaryGuess2000, income_happiness_2000: incomeHappiness2000, overall_happiness_2000: overallHappiness2000, submitType: submitType};
-      debugger;
-      if((geoZone !== null && cityType !== null && race !== null && gender !== null && education !== null && salary2013 !== "" && salaryGuess2013 !== "" && salary2000 !== "" && salaryGuess2000 !== "" && age !== null) && invalidFields.length === 0) {
+    $('#user-input-form')
+      .on('invalid', function () {
+        var invalidFields = $(this).find('[data-invalid]');
+        console.log(invalidFields);
+      })
+      .on('valid', function(e) {
+        e.preventDefault();
+        var geoZone = $('#geo-zone').val(), cityType = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary2013 = $('#salary-2013').val(), salaryGuess2013 = $('#salary-guess-2013').val(), incomeHappiness2013 = $('#income-happiness-2013').val(), overallHappiness2013 = $('#overall-happiness-2013').val(), salary2000 = $('#salary-2000').val(), salaryGuess2000 = $('#salary-guess-2000').val(), incomeHappiness2000 = $('#income-happiness-2000').val(), overallHappiness2000 = $('#overall-happiness-2000').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]'), submitType = 'submit';
+        var data = {geo_zone: geoZone, city_type: cityType, race: race, gender: gender, education: education, age: age, salary_2013: salary2013, salary_guess_2013: salaryGuess2013, income_happiness_2013: incomeHappiness2013, overall_happiness_2013: overallHappiness2013, salary_2000: salary2000, salary_guess_2000: salaryGuess2000, income_happiness_2000: incomeHappiness2000, overall_happiness_2000: overallHappiness2000, submitType: submitType};
           $.ajax({
-            url: 'submit_entry',
-            type: 'POST',
-            data: data, 
-            success: function(){
-            }
-          });
-          Site.animateSubmit();
-        };
-    });
+              url: 'submit_entry',
+              type: 'POST',
+              data: data, 
+              success: function(){
+              }
+            });
+            Site.animateSubmit();
+            debugger;
+      });
   },
 
   setBackEvent: function() {
@@ -131,23 +137,26 @@ var Site = {
     });
   },
 
-  setTweetEvent: function() {
+  setTweetShareEvent: function() {
     $('#tweet-button').click(function(e){
       e.preventDefault();
       var overallPercentile = $('#all-percentile-output').html();
       var tweetText = 'I ranked in the ' + overallPercentile + ' percentile. Find your ranking at www.usincomecalculator.com #incomeinequality';
-      var tweetUrl = "https://twitter.com/share?text=" + encodeURIComponent(tweetText);
+      var tweetUrl = 'https://twitter.com/share?text=' + encodeURIComponent(tweetText);
       window.open(tweetUrl, '_blank', 'height=300,width=600');
     });
   },
 
-   setFacebookEvent: function() {
+  setFacebookEvent: function() {
     $('#facebook-button').click(function(e){
       e.preventDefault();
       var overallPercentile = $('#all-percentile-output').html();
-      var facebookText = 'I ranked in the ' + overallPercentile + ' percentile. Find your ranking at www.usincomecalculator.com #incomeinequality';
-      var facebookUrl = "https://twitter.com/share?text=" + encodeURIComponent(facebookText);
+      var facebookDescription = 'I ranked in the ' + overallPercentile + ' percentile. Find your ranking at www.usincomecalculator.com #incomeinequality';
+      var siteUrl = 'http://localhost:3000';
+      var facebookTitle = 'US Income Calculator';
+      var facebookImage = 'http://webcastnewsroom.com/wp-content/uploads/2013/10/redsox11.jpg';
+      var facebookUrl = 'https://www.facebook.com/sharer/sharer.php?s=100&p[title]=' + encodeURIComponent(facebookTitle) + '&p[summary]=' + encodeURIComponent(facebookDescription) + '&p[url]=' + encodeURIComponent(siteUrl) + '&p[images][0]=' + encodeURIComponent(facebookImage);
       window.open(facebookUrl, '_blank', 'height=300,width=600');
     });
-  },
+  }
 }

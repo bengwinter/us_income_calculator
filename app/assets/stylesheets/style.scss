@@ -92,6 +92,7 @@
   background-color: rgba(13, 60, 34, 1.0000);
   h1 {
     color: rgba(230, 230, 230, 1.000);
+    display: inline;
   }
   p {
     color: rgba(210, 210, 210, 1.000);
@@ -106,6 +107,8 @@
   color: white;
   margin: 20px;
   padding: 17px 45px;
+  font-family: "Alegreya Sans";
+  font-size: 1.1rem;
   background-color: rgba(13, 60, 34, 1.0000);
 }
 
