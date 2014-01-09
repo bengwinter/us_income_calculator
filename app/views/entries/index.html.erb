@@ -2,8 +2,8 @@
   <div id="input-container">
     <div class="large-3 columns side-column" id="left-column">
     </div>
-    <div id="user-input" class="large-6 columns">
-      <form id="user-input-form" data-abide="ajax" method="post">
+    <div id="user-input" class="large-6 columns user-input-class">
+      <form id="user-input-form" data-abide="ajax">
         <div id="financial-entry-container" class="form-input-container">
           <div class="row">
             <div class="small-9 columns salary-input-container">
@@ -27,7 +27,7 @@
           </div>
           <div class="row">
             <div class="small-12 columns demographic-input-container">
-              <label><span>E</span>DUCATION <span>L</span>EVEL</label>
+              <label><span class="entry-form-header-first-letter">E</span><span class="entry-form-header-rest">DUCATION</span>
               <select class="dropdown" id='education-level' required>
                 <option value="" disabled selected>Education Level</option>
                 <option value="no-highschool">No High School Diploma</option>
@@ -41,7 +41,7 @@
           </div>
           <div class="row">
             <div class="small-12 columns demographic-input-container">
-              <label><span>A</span>GE</label>
+              <label><span class="entry-form-header-first-letter">A</span><span class="entry-form-header-rest">GE</span>
               <select class="dropdown" id='age' required>
                 <option value="" disabled selected>Age</option>
                 <option value="agerange1">15 to 24</option>
@@ -62,7 +62,7 @@
           </div>
           <div class="row">
             <div class="small-12 columns demographic-input-container">
-              <label><span>G</span>ENDER</label>
+              <label><span class="entry-form-header-first-letter">G</span><span class="entry-form-header-rest">ENDER</span>
               <select class="dropdown" id='gender' required>
                 <option value="" disabled selected>Gender</option>
                 <option value="female">Female</option>
@@ -73,9 +73,6 @@
           </div>
         </div>
         <div id="demographic-entry-container" class="form-input-container">
-          <div class="entry-form-header-div">
-            <h2 class="entry-form-header form-subheader"><span>A</span>DDITIONAL &nbsp;<span>D</span>EMOGRAPHIC &nbsp;<span>I</span>NFORMATION</h2>
-          </div>
           <div class="row">
             <div class="large-4 columns demographic-input-container">
               <label><span>G</span>EOGRAPHIC &nbsp;<span>Z</span>ONE</label>
@@ -110,11 +107,8 @@
             </div>
           </div>            
         </div>
-        <div id="button-wrapper">
-          <input type="submit" id="submit-entry" value="SUBMIT"/>
-        </div>
-        <div id="min-button-wrapper">
-          <button id='resubmit-entry'>UPDATE</button>
+        <div id="form-button-wrapper" class="main-button-wrapper">
+          <input class='submit-entry-button-large' type="submit" id="submit-entry" value="SUBMIT"/>
           <button id='back-button'><span data-tooltip class="has-tip" id="back-button-tool-tip" data-options="disable_for_touch:true" title="Clicking back will erase all enetered data!">BACK</span></button>
         </div>
       </form>
