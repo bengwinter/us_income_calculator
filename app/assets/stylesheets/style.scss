@@ -9,6 +9,7 @@
 }
 
 #demographic-entry-container {
+  display: none;
   label {
     font-weight: 500;
     cursor: default;
@@ -22,6 +23,10 @@
 
 .side-column {
   height: 600px;
+}
+
+#user-input {
+  margin-top: 100px;
 }
 
 #user-input-form {

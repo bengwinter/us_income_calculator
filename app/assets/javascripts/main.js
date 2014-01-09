@@ -96,8 +96,8 @@ var Site = {
         console.log(invalidFields);
       })
       .on('valid', function(e) {
-        var geoZone = $('#geo-zone').val(), cityType = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary2013 = $('#salary-2013').val(), salaryGuess2013 = $('#salary-guess-2013').val(), incomeHappiness2013 = $('#income-happiness-2013').val(), overallHappiness2013 = $('#overall-happiness-2013').val(), salary2000 = $('#salary-2000').val(), salaryGuess2000 = $('#salary-guess-2000').val(), incomeHappiness2000 = $('#income-happiness-2000').val(), overallHappiness2000 = $('#overall-happiness-2000').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]'), submitType = 'submit';
-        var data = {geo_zone: geoZone, city_type: cityType, race: race, gender: gender, education: education, age: age, salary_2013: salary2013, salary_guess_2013: salaryGuess2013, income_happiness_2013: incomeHappiness2013, overall_happiness_2013: overallHappiness2013, salary_2000: salary2000, salary_guess_2000: salaryGuess2000, income_happiness_2000: incomeHappiness2000, overall_happiness_2000: overallHappiness2000, submitType: submitType};
+        var geoZone = $('#geo-zone').val(), cityType = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), age = $('#age').val(), salary2013 = $('#salary-2013').val(), salaryGuess2013 = $('#salary-guess-2013').val(), submitType = 'submit';
+        var data = {geo_zone: geoZone, city_type: cityType, race: race, gender: gender, education: education, age: age, salary_2013: salary2013, salary_guess_2013: salaryGuess2013, submitType: submitType};
           $.ajax({
               url: 'submit_entry',
               type: 'POST',
@@ -123,8 +123,8 @@ var Site = {
         console.log(invalidFields);
       })
       .on('valid', function(e) {
-        var geoZone = $('#geo-zone').val(), cityType = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary2013 = $('#salary-2013').val(), salaryGuess2013 = $('#salary-guess-2013').val(), incomeHappiness2013 = $('#income-happiness-2013').val(), overallHappiness2013 = $('#overall-happiness-2013').val(), salary2000 = $('#salary-2000').val(), salaryGuess2000 = $('#salary-guess-2000').val(), incomeHappiness2000 = $('#income-happiness-2000').val(), overallHappiness2000 = $('#overall-happiness-2000').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]'), submitType = 'resubmit';
-        var data = {geo_zone: geoZone, city_type: cityType, race: race, gender: gender, education: education, age: age, salary_2013: salary2013, salary_guess_2013: salaryGuess2013, income_happiness_2013: incomeHappiness2013, overall_happiness_2013: overallHappiness2013, salary_2000: salary2000, salary_guess_2000: salaryGuess2000, income_happiness_2000: incomeHappiness2000, overall_happiness_2000: overallHappiness2000, submitType: submitType};
+        var geoZone = $('#geo-zone').val(), cityType = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), age = $('#age').val(), salary2013 = $('#salary-2013').val(), salaryGuess2013 = $('#salary-guess-2013').val(), submitType = 'submit';
+        var data = {geo_zone: geoZone, city_type: cityType, race: race, gender: gender, education: education, age: age, salary_2013: salary2013, salary_guess_2013: salaryGuess2013, submitType: submitType};
           $.ajax({
               url: 'submit_entry',
               type: 'POST',
