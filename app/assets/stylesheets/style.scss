@@ -8,13 +8,14 @@
   overflow: scroll;
 }
 
-#entry-form-demographic {
+#demographic-entry-container {
   label {
     font-weight: 500;
     cursor: default;
     span {
       font-size: 1.05rem;
       font-weight: 500;
+      cursor: default;
     }
   }
 }
