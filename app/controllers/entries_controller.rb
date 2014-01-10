@@ -48,33 +48,53 @@ class EntriesController < ApplicationController
     
     @income_2013 = params["salary_2013"].to_i
     @income_guess_2013 = params["salary_guess_2013"].to_i
+    #.7388 comes from the CPI calculator and, as of Jan-2014, is the most current ratio of turning 2013 dollars into 2000 dollars
+    @income_2000 = (@income_2013 * (0.7388))
 
+    #sets keys for original submission
     @keys = []
     @output = {}
     @all = "allallallall"
     @gender = params["gender"] + "allallall"
     @age = "allallage" + params["age"]
     @education = "allalleducation" + params["education"]
+    @gender_age = params["gender"] + "allage" + params["age"]
+    @gender_education = params["gender"] + "alleducation" + params["education"]
+    @keys << @all << @gender << @age << @education << @gender_age << @gender_education
 
-    @keys << @all << @gender << @age << @education
-    
+
+    #sets keys for updated submission with other variables only available after inital submit
     if params["submit_type"] == "UPDATE"
       @race_descriptor = params["race"].capitalize
       @city_descriptor = params["city_type"].capitalize
       @geo_descriptor = params["geo_zone"].capitalize
-      @geo = "allallgeography" + params["geo_zone"]
       @city = "allallgeography" + params["city_type"]
+      @geo = "allallgeography" + params["geo_zone"]
       @race = "all" + params["race"] + "allall"
-      @gender_education = params["gender"] + "alleducation" + params["education"]
-      @gender_age = params["gender"] + "allage" + params["age"]
       @gender_race = params["gender"] + params["race"] + "allall"
       @gender_race_education = params["gender"] + params["race"] + "education" + params["education"]
       @gender_race_age = params["gender"] + params["race"] + "age" + params["age"]
       @race_education = "all" + params["race"] + "education" + params["education"]
       @race_age = "all" + params["race"] + "age" + params["age"]
-      @keys << @geo << @city << @gender_education << @gender_age << @gender_race_education << @gender_race_age << @race_education << @race_age << @race << @gender_races
+      
+
+      if @race_descriptor != ""
+        @keys << @race << @gender_race << @gender_race_education << @gender_race_age << @race_education << @race_age
+      else
+      end
+      
+      if @city_descriptor != ""
+        @keys << @city
+      else
+      end
+
+      if @geo_descriptor != ""
+        @keys << @geo
+      else
+      end
     else 
     end
+
 
     @keys.each do |key|
       p = 0

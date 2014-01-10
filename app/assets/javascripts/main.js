@@ -4,7 +4,6 @@ $(document).ready(function(){
   Site.pageResizeListeners();
   Site.animateAbout();
   Site.setBackEvent();
-  Site.setResubmitEvent();
   Site.setTweetShareEvent();
   Site.setFacebookEvent();
 });
