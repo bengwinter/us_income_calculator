@@ -53,7 +53,8 @@ class EntriesController < ApplicationController
 
     #sets keys for original submission
     @keys = []
-    @output = {}
+    @output_2013 = {}
+    @output_2000 = {}
     @all = "allallallall"
     @gender = params["gender"] + "allallall"
     @age = "allallage" + params["age"]
@@ -95,7 +96,7 @@ class EntriesController < ApplicationController
     else 
     end
 
-
+    #Produces percentile rankings for 2013 income
     @keys.each do |key|
       p = 0
       percentiles = DATA_2013[key]
@@ -112,8 +113,32 @@ class EntriesController < ApplicationController
       if p >= 100
         p = 99
       end
-      @output[key] = p
+      @output_2013[key] = p
     end
+
+    #Produces percentile rankings for 2000 income
+    @keys.each do |key|
+      p = 0
+      percentiles = DATA_2000[key]
+      l = percentiles.length
+      if @income_2000 > percentiles[(l-1)]
+        p = 99
+      elsif @income_2000 <= percentiles[0]
+        p = 1
+      else
+        while @income_2000 > percentiles[p]
+          p += 1
+        end
+      end
+      if p >= 100
+        p = 99
+      end
+      @output_2000[key] = p
+    end
+
+    @output_ideal = {}
+    @output_gs = {}
+
     
     Entry.create(submit_type: params["submit_type"], gender: params["gender"], education: params["education"], age: params["age"], salary_2013: params["salary_2013"], salary_guess_2013: params["salary_guess_2013"], geo_zone: params["geo_zone"], city_type: params["city_type"], race: params["race"])
     
