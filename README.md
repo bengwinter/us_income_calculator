@@ -11,4 +11,4 @@ Application that allows an individual to see where he/she is positioned in the i
 Currently in final stages of testing.
 
 ####This application was built by:
-[bengwinter](https://github.com/bengwinter)
+[Ben Winter](https://github.com/bengwinter)
