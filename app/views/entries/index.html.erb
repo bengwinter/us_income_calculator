@@ -2,26 +2,20 @@
   <div id="input-container">
     <div class="large-3 columns side-column" id="left-column">
     </div>
-    <div id="user-input" class="large-6 columns">
+    <div id="user-input" class="large-6 columns user-input-class">
       <form id="user-input-form" data-abide="ajax" method="post">
         <div id="financial-entry-container" class="form-input-container">
-          <div class="entry-form-header-div">
-            <h2 class="entry-form-header form-subheader"><span>F</span>INANCIAL &nbsp;<span>I</span>NFORMATION</h2>
-          </div>
           <div class="row">
-            <div class="year-label-container">
-              <h4 class="year-label" id="2013-year-label">2013</h4>
-            </div>
-            <div class="large-5 columns salary-input-container">
+            <div class="small-9 columns salary-input-container">
               <label>
                 <span data-tooltip class="has-tip" data-options="disable_for_touch:true" data-width="400" title="Please enter your annualized salary for the year of 2013. No personal information will be stored.">
-                  <span class="entry-form-header-first-letter">S</span><span class="entry-form-header-rest">ALARY</span> 
+                  <span class="entry-form-header-first-letter">2013</span> <span class="entry-form-header-first-letter">S</span><span class="entry-form-header-rest">ALARY</span> 
                 </span>
               </label>
               <input type='text' id='salary-2013' placeholder='Salary in 2013' pattern="^\+?(0|[1-9]\d*)$" required/>
               <small class="error">A numeric value is required and must be an integer. Please do not include &nbsp;&nbsp;<span class="large-comma-dollar-sign">,</span> &nbsp;&nbsp;or &nbsp;&nbsp;<span class="large-comma-dollar-sign">$</span>. (For example, please enter <span class="large-comma-dollar-sign">$</span>10,000 as 10000)</small>
             </div>
-            <div class="large-3 columns salary-guess-input-container">
+            <div class="small-3 columns salary-guess-input-container">
               <label>
                 <span data-tooltip class="has-tip" data-options="disable_for_touch:true" data-width="400" title="Please guess what percentile you think you belong to in comparison to the entire United States population over 15. Please enter a number between 1 and 99. For example, if you believe your income is higher than a quarter of the country, please enter 25. (Note: after your first submission you will not be able to enter a new guess)">
                   <span class="entry-form-header-first-letter">P</span><span class="entry-form-header-rest">ERCENTILE</span> <span class="entry-form-header-first-letter">G</span><span class="entry-form-header-rest">UESS</span>
@@ -30,140 +24,10 @@
               <input type='text' id='salary-guess-2013' placeholder='Guess your percentile' pattern="^[1-9][0-9]{0,1}$" required/>
               <small class="error">A number between 1 and 99 is required.</small>
             </div>
-            <div class="large-2 columns happiness-input-container">
-              <label>
-                <span data-tooltip class="has-tip" data-options="disable_for_touch:true" data-width="300" title="Please rate how content you are with your 2013 income (1 = extremely unhappy, 10 = life is the best)">
-                  <span class="entry-form-header-first-letter">I</span><span class="entry-form-header-rest">NCOME</span> <span class="entry-form-header-first-letter">H</span><span class="entry-form-header-rest">APPINESS</span>
-                </span>
-              </label>
-              <select class="dropdown" id="income-happiness-2013">
-                <option value="" disabled selected>1-10</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </div>
-            <div class="large-2 columns happiness-input-container">
-              <label>
-                <span data-tooltip class="has-tip" data-options="disable_for_touch:true" data-width="300" title="Please rate how content you are with your life (1 = extremely unhappy, 10 = life is the best)">
-                  <span class="entry-form-header-first-letter">O</span><span class="entry-form-header-rest">VERALL</span> <span class="entry-form-header-first-letter">H</span><span class="entry-form-header-rest">APPINESS</span>
-                </span>
-              </label>
-              <select class="dropdown" id="overall-happiness-2013">
-                <option value="" disabled selected>1-10</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </div>
           </div>
           <div class="row">
-            <div class="year-label-container">
-              <h4 class="year-label" id="2000-year-label">2000</h4>
-            </div>
-            <div class="large-5 columns salary-input-container">
-              <label>
-                <span data-tooltip class="has-tip" data-options="disable_for_touch:true" data-width="400"  title="Please enter your annualized salary for the year of 2000. If you were not working in 2000, please enter your 2013 salary or leave blank. No personal information will be stored.">
-                  <span class="entry-form-header-first-letter">S</span><span class="entry-form-header-rest">ALARY</span> 
-                </span>
-              </label>
-              <input type='text' id='salary-2000' placeholder='Salary in 2000' pattern="^\+?(0|[1-9]\d*)$" required/>
-              <small class="error">A numeric value is required and must be an integer. Please do not include &nbsp;&nbsp;<span class="large-comma-dollar-sign">,</span> &nbsp;&nbsp;or &nbsp;&nbsp;<span class="large-comma-dollar-sign">$</span>. (For example, please enter <span class="large-comma-dollar-sign">$</span>10,000 as 10000)</small>
-            </div>
-            <div class="large-3 columns salary-guess-input-container">
-              <label>
-                <span data-tooltip class="has-tip" data-options="disable_for_touch:true" data-width="400" title="Please guess what percentile you think you belonged to in 2000 in comparison to the entire United States population over 15. Please enter a number between 1 and 99. For example, if you believe your income is higher than a quarter of the country, please enter 25. (Note: after your first submission you will not be able to enter a new guess)">
-                  <span class="entry-form-header-first-letter">P</span><span class="entry-form-header-rest">ERCENTILE</span> <span class="entry-form-header-first-letter">G</span><span class="entry-form-header-rest">UESS</span>
-                </span>
-              </label>
-              <input type='text' id='salary-guess-2000' placeholder='Guess your percentile' pattern="^[1-9][0-9]{0,1}$" required/>
-              <small class="error">A number between 1 and 99 is required.</small>
-            </div>
-            <div class="large-2 columns happiness-input-container">
-              <label>
-                <span data-tooltip class="has-tip" data-options="disable_for_touch:true" data-width:"300" title="Please rate how content you were with your 2000 income (1 = extremely unhappy, 10 = life is the best)">
-                  <span class="entry-form-header-first-letter">I</span><span class="entry-form-header-rest">NCOME</span> <span class="entry-form-header-first-letter">H</span><span class="entry-form-header-rest">APPINESS</span>
-                </span>
-              </label>
-              <select class="dropdown" id="income-happiness-2000">
-                <option value="" disabled selected>1-10</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </div>
-            <div class="large-2 columns happiness-input-container">
-              <label>
-                <span data-tooltip class="has-tip" data-options="disable_for_touch:true" data-width:"300" title="Please rate how content you were with your life in 2000 (1 = extremely unhappy, 10 = life is the best)">
-                  <span class="entry-form-header-first-letter">O</span><span class="entry-form-header-rest">VERALL</span> <span class="entry-form-header-first-letter">H</span><span class="entry-form-header-rest">APPINESS</span>
-                </span>
-              </label>
-              <select class="dropdown" id="overall-happiness-2000">
-                <option value="" disabled selected>1-10</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div id="demographic-entry-container" class="form-input-container">
-          <div class="entry-form-header-div">
-            <h2 class="entry-form-header form-subheader"><span>D</span>EMOGRAPHIC &nbsp;<span>I</span>NFORMATION</h2>
-          </div>
-          <div class="row">
-            <div class="large-7 columns demographic-input-container">
-              <label><span>G</span>EOGRAPHIC &nbsp;<span>Z</span>ONE</label>
-              <select class="dropdown" id='geo-zone' required>
-                <option value="" disabled selected>Geographic Zone</option>
-                <option value="northeast">Northeast</option>
-                <option value="midwest">Midwest</option>
-                <option value="south">South</option>
-                <option value="west">West</option>
-              </select>
-              <small class="error">Please select a geographic zone</small>
-            </div>
-            <div class="large-5 columns demographic-input-container">
-              <label><span>C</span>ITY &nbsp;<span>T</span>YPE</label>
-              <select class="dropdown" id='city-type' required>
-                <option value="" disabled selected>City Type</option>
-                <option value="rural">Rural</option>
-                <option value="urban">Urban</option>
-              </select>
-              <small class="error">Please select a city type</small>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-6 columns demographic-input-container">
-              <label><span>E</span>DUCATION <span>L</span>EVEL</label>
+            <div class="small-12 columns demographic-input-container">
+              <label><span class="entry-form-header-first-letter">E</span><span class="entry-form-header-rest">DUCATION</span>
               <select class="dropdown" id='education-level' required>
                 <option value="" disabled selected>Education Level</option>
                 <option value="no-highschool">No High School Diploma</option>
@@ -174,8 +38,10 @@
               </select>
               <small class="error">Please select an education level</small>
             </div>
-            <div class="large-6 columns demographic-input-container">
-              <label><span>A</span>GE</label>
+          </div>
+          <div class="row">
+            <div class="small-12 columns demographic-input-container">
+              <label><span class="entry-form-header-first-letter">A</span><span class="entry-form-header-rest">GE</span>
               <select class="dropdown" id='age' required>
                 <option value="" disabled selected>Age</option>
                 <option value="agerange1">15 to 24</option>
@@ -195,19 +61,8 @@
             </div>
           </div>
           <div class="row">
-            <div class="large-7 columns demographic-input-container">
-              <label><span>R</span>ACE</label>
-              <select class="dropdown" id='race' required>
-                <option class="default-select" value="" disabled selected>Race</option>
-                <option value="white">White</option>
-                <option value="black">Black</option>
-                <option value="hispanic">Hispanic</option>
-                <option value="other">Other</option>
-              </select>
-              <small class="error">Please select a race</small>
-            </div>
-            <div class="large-5 columns demographic-input-container">
-              <label><span>G</span>ENDER</label>
+            <div class="small-12 columns demographic-input-container">
+              <label><span class="entry-form-header-first-letter">G</span><span class="entry-form-header-rest">ENDER</span>
               <select class="dropdown" id='gender' required>
                 <option value="" disabled selected>Gender</option>
                 <option value="female">Female</option>
@@ -217,11 +72,43 @@
             </div>
           </div>
         </div>
-        <div id="button-wrapper">
-          <input type="submit" id="submit-entry" value="SUBMIT"/>
+        <div id="demographic-entry-container" class="form-input-container">
+          <div class="row">
+            <div class="large-4 columns demographic-input-container">
+              <label><span>G</span>EOGRAPHY</label>
+              <select class="dropdown" id='geo-zone'>
+                <option value="" disabled selected>Geography</option>
+                <option value="northeast">Northeast</option>
+                <option value="midwest">Midwest</option>
+                <option value="south">South</option>
+                <option value="west">West</option>
+              </select>
+              <small class="error">Please select a geographic zone</small>
+            </div>
+            <div class="large-4 columns demographic-input-container">
+              <label><span>C</span>ITY &nbsp;<span>T</span>YPE</label>
+              <select class="dropdown" id='city-type'>
+                <option value="" disabled selected>City Type</option>
+                <option value="rural">Rural</option>
+                <option value="urban">Urban</option>
+              </select>
+              <small class="error">Please select a city type</small>
+            </div>
+            <div class="large-4 columns demographic-input-container">
+              <label><span>R</span>ACE</label>
+              <select class="dropdown" id='race'>
+                <option class="default-select" value="" disabled selected>Race</option>
+                <option value="white">White</option>
+                <option value="black">Black</option>
+                <option value="hispanic">Hispanic</option>
+                <option value="other">Other</option>
+              </select>
+              <small class="error">Please select a race</small>
+            </div>
+          </div>            
         </div>
-        <div id="min-button-wrapper">
-          <button id='resubmit-entry'>UPDATE</button>
+        <div id="form-button-wrapper" class="main-button-wrapper">
+          <input class='submit-entry-button-large' type="submit" id="submit-entry" value="SUBMIT"/>
           <button id='back-button'><span data-tooltip class="has-tip" id="back-button-tool-tip" data-options="disable_for_touch:true" title="Clicking back will erase all enetered data!">BACK</span></button>
         </div>
       </form>
@@ -231,7 +118,7 @@
   </div>
 
   <div id="output-container" class="large-9 columns">
-    <div class="row" id="data-output-container">
+    <div id="data-output-container">
       <div id="data-output">
       </div>
     </div>

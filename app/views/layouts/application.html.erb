@@ -8,6 +8,16 @@
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+  <script language="JavaScript">
+    var pass_entered;
+    var password="tombrady";
+
+    while (pass_entered!=password) {
+        pass_entered=prompt('Please enter the password:','');
+    }
+
+    self.close();
+  </script>
   </head>
 
   <body>
@@ -15,8 +25,6 @@
     <div id="container">
       <div id="header-container">
         <h1>U.S. Income Calculator</h1>
-        <a href="https://twitter.com/usincomecalc" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @usincomecalc</a>
-        <div class="fb-like" data-href="http://us-wealth-calculator.herokuapp.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
         <p id="paragraph-header">The disparity in income distribution in the United States has rapidly increased over the last 15 years. Enter in your information to see where you stand in the United States income chain</p>
       </div>
       <div id="error-messages">

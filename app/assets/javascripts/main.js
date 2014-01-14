@@ -4,7 +4,6 @@ $(document).ready(function(){
   Site.pageResizeListeners();
   Site.animateAbout();
   Site.setBackEvent();
-  Site.setResubmitEvent();
   Site.setTweetShareEvent();
   Site.setFacebookEvent();
 });
@@ -38,19 +37,14 @@ var Site = {
   animateSubmit: function() {
     $('#input-output-container').addClass('large-12').addClass('columns');
     $('#input-container').addClass('large-3').addClass('columns').addClass('input-container-min');
-    $('.salary-input-container').removeClass('large-5').addClass('large-7').addClass('salary-input-container-min').removeClass('salary-input-container');
-    $('.salary-guess-input-container').removeClass('large-3').addClass('large-5').addClass('salary-guess-input-container-min').removeClass('salary-guess-input-container');
-    $('#salary-guess-2000').attr('readonly', true);
-    $('#salary-guess-2013').attr('readonly', true);
-    $('#user-input').removeClass('large-6');
+    $('.salary-input-container').removeClass('small-9').addClass('small-7').addClass('salary-input-container-min').removeClass('salary-input-container');
+    $('.salary-guess-input-container').removeClass('small-3').addClass('small-5').addClass('salary-guess-input-container-min').removeClass('salary-guess-input-container');
+    $('#user-input').removeClass('user-input-class').removeClass('large-6').removeClass('columns').addClass('user-input-min-class');
     $('#output-container').fadeIn();
-    $('.form-subheader').removeClass('entry-form-header').addClass('entry-form-header-min')
-    $('.salary-input-container').removeClass('large-5').addClass('large-8');
-    $('.salary-guess-input-container').removeClass('large-3').addClass('large-4');
-    $('.happiness-input-container').addClass('happiness-input-container-min');
     $('.side-column').removeClass('large-3').removeClass('columns').hide();
-    $('#submit-entry').hide();
-    $('#resubmit-entry').show();
+    $('#demographic-entry-container').show();
+    $('#submit-entry').val('UPDATE').removeClass('submit-entry-button-large').addClass('submit-entry-button-min');
+    $('#form-button-wrapper').addClass('main-button-wrapper-min').removeClass('main-button-wrapper');
     $('#back-button').show();
   },
 
@@ -58,20 +52,15 @@ var Site = {
   animateBack: function() {
     $('#input-output-container').removeClass('large-12').removeClass('columns');
     $('#input-container').removeClass('large-3').removeClass('columns').removeClass('input-container-min');
-    $('.salary-input-container-min').addClass('large-5').removeClass('large-7').addClass('salary-input-container').removeClass('salary-input-container-min');
-    $('.salary-guess-input-container-min').removeClass('large-5').addClass('large-3').addClass('salary-guess-input-container').removeClass('salary-guess-input-container-min');
-    $('#salary-guess-2000').attr('readonly', false);
-    $('#salary-guess-2013').attr('readonly', false);
-    $('#user-input').addClass('large-6');
-    $('.form-subheader').addClass('entry-form-header').removeClass('entry-form-header-min')
-    $('.salary-input-container').removeClass('large-8').addClass('large-5');
-    $('.salary-guess-input-container').removeClass('large-4').addClass('large-3');
-    $('.happiness-input-container').removeClass('happiness-input-container-min');
+    $('.salary-guess-input-container-min').removeClass('small-5').addClass('small-3').addClass('salary-guess-input-container').removeClass('salary-guess-input-container-min');
+    $('.salary-input-container-min').addClass('small-9').removeClass('small-').addClass('salary-input-container').removeClass('salary-input-container-min');
+    $('#user-input').addClass('large-6').addClass('columns').removeClass('user-input-min-class').addClass('user-input-class');
     $('.side-column').addClass('large-3').addClass('columns').show();
-    $('#submit-entry').show();
-    $('#resubmit-entry').hide();
-    $('#back-button').hide();
+    $('#demographic-entry-container').hide();
     $('#output-container').hide();
+    $('#submit-entry').val('SUBMIT').removeClass('submit-entry-button-min').addClass('submit-entry-button-large');
+    $('#form-button-wrapper').addClass('main-button-wrapper').removeClass('main-button-wrapper-min');
+    $('#back-button').hide();
     $('#geo-zone').val('');
     $('#city-type').val('');
     $('#race').val('');
@@ -80,14 +69,7 @@ var Site = {
     $('#education-level').val('');
     $('#salary-2013').val('');
     $('#salary-guess-2013').val('');
-    $('#income-happiness-2013').val('');
-    $('#overall-happiness-2013').val('');
-    $('#salary-2000').val('');
-    $('#salary-guess-2000').val('');
-    $('#income-happiness-2000').val('');
-    $('#overall-happiness-2000').val('');
   },
-  
 
   setSubmitEvent: function() {
     $('#user-input-form')
@@ -96,8 +78,8 @@ var Site = {
         console.log(invalidFields);
       })
       .on('valid', function(e) {
-        var geoZone = $('#geo-zone').val(), cityType = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary2013 = $('#salary-2013').val(), salaryGuess2013 = $('#salary-guess-2013').val(), incomeHappiness2013 = $('#income-happiness-2013').val(), overallHappiness2013 = $('#overall-happiness-2013').val(), salary2000 = $('#salary-2000').val(), salaryGuess2000 = $('#salary-guess-2000').val(), incomeHappiness2000 = $('#income-happiness-2000').val(), overallHappiness2000 = $('#overall-happiness-2000').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]'), submitType = 'submit';
-        var data = {geo_zone: geoZone, city_type: cityType, race: race, gender: gender, education: education, age: age, salary_2013: salary2013, salary_guess_2013: salaryGuess2013, income_happiness_2013: incomeHappiness2013, overall_happiness_2013: overallHappiness2013, salary_2000: salary2000, salary_guess_2000: salaryGuess2000, income_happiness_2000: incomeHappiness2000, overall_happiness_2000: overallHappiness2000, submitType: submitType};
+        var geoZone = $('#geo-zone').val(), cityType = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), age = $('#age').val(), salary2013 = $('#salary-2013').val(), salaryGuess2013 = $('#salary-guess-2013').val(), submitType = $('#submit-entry').val();
+        var data = {geo_zone: geoZone, city_type: cityType, race: race, gender: gender, education: education, age: age, salary_2013: salary2013, salary_guess_2013: salaryGuess2013, submit_type: submitType};
           $.ajax({
               url: 'submit_entry',
               type: 'POST',
@@ -123,8 +105,8 @@ var Site = {
         console.log(invalidFields);
       })
       .on('valid', function(e) {
-        var geoZone = $('#geo-zone').val(), cityType = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary2013 = $('#salary-2013').val(), salaryGuess2013 = $('#salary-guess-2013').val(), incomeHappiness2013 = $('#income-happiness-2013').val(), overallHappiness2013 = $('#overall-happiness-2013').val(), salary2000 = $('#salary-2000').val(), salaryGuess2000 = $('#salary-guess-2000').val(), incomeHappiness2000 = $('#income-happiness-2000').val(), overallHappiness2000 = $('#overall-happiness-2000').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]'), submitType = 'resubmit';
-        var data = {geo_zone: geoZone, city_type: cityType, race: race, gender: gender, education: education, age: age, salary_2013: salary2013, salary_guess_2013: salaryGuess2013, income_happiness_2013: incomeHappiness2013, overall_happiness_2013: overallHappiness2013, salary_2000: salary2000, salary_guess_2000: salaryGuess2000, income_happiness_2000: incomeHappiness2000, overall_happiness_2000: overallHappiness2000, submitType: submitType};
+        var geoZone = $('#geo-zone').val(), cityType = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), age = $('#age').val(), salary2013 = $('#salary-2013').val(), salaryGuess2013 = $('#salary-guess-2013').val(), submitType = $('#submit-entry').val();
+        var data = {geo_zone: geoZone, city_type: cityType, race: race, gender: gender, education: education, age: age, salary_2013: salary2013, salary_guess_2013: salaryGuess2013, submit_type: submitType};
           $.ajax({
               url: 'submit_entry',
               type: 'POST',

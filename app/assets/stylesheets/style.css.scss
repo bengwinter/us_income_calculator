@@ -9,6 +9,7 @@
 }
 
 #demographic-entry-container {
+  display: none;
   label {
     font-weight: 500;
     cursor: default;
@@ -22,6 +23,10 @@
 
 .side-column {
   height: 600px;
+}
+
+.user-input-class {
+  margin-top: 100px;
 }
 
 #user-input-form {
@@ -38,14 +43,6 @@
 
 .demographic-input-container {
   padding: 5px;
-}
-
-.happiness-input-container {
-  padding: 5px;
-}
-
-.happiness-input-container-min {
-  display: none;
 }
 
 .salary-input-container {
@@ -100,38 +97,56 @@
   }
 }
 
+#social-media-follow-container {
+  text-align: center;
+}
+
 #paragraph-header {
   margin-top: -10px;
 }
 
-#submit-entry {
-  color: white;
+.main-button-wrapper {
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
+
+.main-button-wrapper-min {
+  width: 100%;
+  padding: 5px 0px;
+}
+
+.submit-entry-button-large {
+  color: rgba(255, 255, 255, 1.0000);
   margin: 20px;
   padding: 17px 45px;
   font-family: "Alegreya Sans";
   font-size: 1.1rem;
   background-color: rgba(13, 60, 34, 1.0000);
+  border: none;
 }
 
-#resubmit-entry {
+.submit-entry-button-min {
   margin: 1px;
   padding: 20px 46px;
-  background-color: rgba(0, 86, 115, 1.0000);
-  display: none;
+  background-color: rgba(13, 60, 34, 1.0000);
+  font-family: "Alegreya Sans";
+  color: rgba(255, 255, 255, 1.0000);
+  font-size: 1.1rem;
   position: left;
+  border: none;
 }
 
-#min-button-wrapper {
-  width: 100%;
-  padding: 5px;
-  margin-top: -13px;
-}
 
 #back-button {
   margin: 1px;
   padding: 20px 30px;
   background-color: rgba(115, 15, 22, 1.0000);
   display: none;
+  font-size: 1.1rem;
+  border: none;
+  font-family: "Alegreya Sans";
+  color: rgba(255, 255, 255, 1.0000);
   float: right;
 }
 
@@ -198,12 +213,6 @@
   }
 }
 
-#button-wrapper {
-  text-align: center;
-  width: 100%;
-  display: inline-block;
-}
-
 .dropdown {
   color: rgba(0, 0, 0, 0.4);
   height: 37px;
@@ -239,7 +248,6 @@
 
 
 #output-container {
-  height: 636px;
   border: 1px solid rgba(0, 0, 0, 1.0000);
   display: none;
   padding: 5px;
@@ -248,7 +256,7 @@
 }
 
 #data-output {
-  background-color: rgba(12, 72, 73, 1.000);
+  color: rgba(12, 72, 73, 1.000);
 }
 
 .granular-percentile-title {
@@ -408,4 +416,19 @@
   margin-top: -5px;
 }
 
+#salary-output-container {
+  list-style-type: none;
+  text-align: center;
+}
 
+#demographic-output-container {
+  text-align: center;
+}
+
+.output-list {
+    list-style-type: none;
+}
+
+.list-header-container {
+  text-algn: center;
+}

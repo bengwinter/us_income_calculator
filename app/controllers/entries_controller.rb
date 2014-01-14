@@ -4,10 +4,7 @@ class EntriesController < ApplicationController
 
   def submit
     @descriptors = []
-    @race_descriptor = params["race"].capitalize
     @gender_descriptor = params["gender"].capitalize
-    @city_descriptor = params["city_type"].capitalize
-    @geo_descriptor = params["geo_zone"].capitalize
 
     case params["education"]
     when params["education"] = "no-highschool"
@@ -51,26 +48,55 @@ class EntriesController < ApplicationController
     
     @income_2013 = params["salary_2013"].to_i
     @income_guess_2013 = params["salary_guess_2013"].to_i
-    @income_2000 = params["salary_2000"].to_i
-    @income_guess_2000 = params["salary_guess_2000"].to_i
+    #.7388 comes from the CPI calculator and, as of Jan-2014, is the most current ratio of turning 2013 dollars into 2000 dollars
+    @income_2000 = (@income_2013 * (0.7388))
 
+    #sets keys for original submission
     @keys = []
-    @output = {}
+    @output_2013 = {}
+    @output_2000 = {}
     @all = "allallallall"
     @gender = params["gender"] + "allallall"
     @age = "allallage" + params["age"]
-    @geo = "allallgeography" + params["geo_zone"]
-    @city = "allallgeography" + params["city_type"]
     @education = "allalleducation" + params["education"]
-    @race = "all" + params["race"] + "allall"
-    @gender_education = params["gender"] + "alleducation" + params["education"]
     @gender_age = params["gender"] + "allage" + params["age"]
-    @gender_race = params["gender"] + params["race"] + "allall"
-    @gender_race_education = params["gender"] + params["race"] + "education" + params["education"]
-    @gender_race_age = params["gender"] + params["race"] + "age" + params["age"]
-    @race_education = "all" + params["race"] + "education" + params["education"]
-    @race_age = "all" + params["race"] + "age" + params["age"]
-    @keys << @all << @gender << @age << @geo << @city << @education << @gender_education << @gender_age << @gender_race_education << @gender_race_age << @race_education << @race_age << @race << @gender_race
+    @gender_education = params["gender"] + "alleducation" + params["education"]
+    @keys << @all << @gender << @age << @education << @gender_age << @gender_education
+
+
+    #sets keys for updated submission with other variables only available after inital submit
+    if params["submit_type"] == "UPDATE"
+      @race_descriptor = params["race"].capitalize
+      @city_descriptor = params["city_type"].capitalize
+      @geo_descriptor = params["geo_zone"].capitalize
+      @city = "allallgeography" + params["city_type"]
+      @geo = "allallgeography" + params["geo_zone"]
+      @race = "all" + params["race"] + "allall"
+      @gender_race = params["gender"] + params["race"] + "allall"
+      @gender_race_education = params["gender"] + params["race"] + "education" + params["education"]
+      @gender_race_age = params["gender"] + params["race"] + "age" + params["age"]
+      @race_education = "all" + params["race"] + "education" + params["education"]
+      @race_age = "all" + params["race"] + "age" + params["age"]
+      
+
+      if @race_descriptor != ""
+        @keys << @race << @gender_race << @gender_race_education << @gender_race_age << @race_education << @race_age
+      else
+      end
+      
+      if @city_descriptor != ""
+        @keys << @city
+      else
+      end
+
+      if @geo_descriptor != ""
+        @keys << @geo
+      else
+      end
+    else 
+    end
+
+    #Produces percentile rankings for 2013 income
     @keys.each do |key|
       p = 0
       percentiles = DATA_2013[key]
@@ -87,16 +113,38 @@ class EntriesController < ApplicationController
       if p >= 100
         p = 99
       end
-      @output[key] = p
+      @output_2013[key] = p
     end
+
+    #Produces percentile rankings for 2000 income
+    @keys.each do |key|
+      p = 0
+      percentiles = DATA_2000[key]
+      l = percentiles.length
+      if @income_2000 > percentiles[(l-1)]
+        p = 99
+      elsif @income_2000 <= percentiles[0]
+        p = 1
+      else
+        while @income_2000 > percentiles[p]
+          p += 1
+        end
+      end
+      if p >= 100
+        p = 99
+      end
+      @output_2000[key] = p
+    end
+
+    @output_ideal = {}
+    @output_gs = {}
+
     
-    if params["submitType"] == 'submit'
-      Entry.create(geo_zone: params["geo_zone"], city_type: params["city_type"], race: params["race"], gender: params["gender"], education: params["education"], age: params["age"], salary_2013: params["salary_2013"], salary_guess_2013: params["salary_guess_2013"], income_happiness_2013: params["income_happiness_2013"], overall_happiness_2013: params["overall_happiness_2013"], salary_2000: params["salary_2000"], salary_guess_2000: params["salary_guess_2000"], income_happiness_2000: params["income_happiness_2000"], overall_happiness_2000: params["overall_happiness_2000"])
-    elsif params["submitType"] == 'resubmit'
-    end
+    Entry.create(submit_type: params["submit_type"], gender: params["gender"], education: params["education"], age: params["age"], salary_2013: params["salary_2013"], salary_guess_2013: params["salary_guess_2013"], geo_zone: params["geo_zone"], city_type: params["city_type"], race: params["race"])
     
     respond_to do |format|
         format.js
     end
+
   end
 end
