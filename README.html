@@ -1,0 +1,29 @@
+<h2 id="us-income-calculator">US Income Calculator</h2>
+<h4 id="a-political-sentiment-api">A political sentiment API</h4>
+<h3 id="about">About</h3>
+<p>Monroe aggregates Twitter and news content and performs sentiment analysis while building associations between collected content and a database of federal politicians. Monroe also collects voting records and bill sponsorships (source: New York Times) for all politicians that are being tracked. </p>
+<h3 id="access-configuration">Access &amp; Configuration</h3>
+<p>There are currently three endpoints accessible from this wrapper:</p>
+<p>  Monroe::Articles
+  Monroe::Tweets
+  Monroe::Records
+  Monroe::Bills</p>
+<p>To access the data from these endpoints, you will first need to request an API key and configure the client with this key. If you do not already have a key, you can generate one by querying the API&#39;s generator endpoint with your email as a parameter:</p>
+<p>  www.monroeapi.com/api_key?email=your_email@example.com</p>
+<p>Once you have your key, you can configure the client by setting the key in an initializer file of simply at the top of your program:</p>
+<p>  Monroe.key = YOUR_API_KEY</p>
+<p>Once the key is configured, you&#39;re good to go. Refer to the following documentation to access each endpoint.</p>
+<h3 id="gem">Gem</h3>
+<p>Please visit <a href="https://github.com/bengwinter/monroe_gem">https://github.com/bengwinter/monroe_gem</a> for a Ruby Gem for all endpoints (Github page includes gem documentation)</p>
+<h3 id="contributing">Contributing</h3>
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am &#39;Add some feature&#39;</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+<h4 id="this-api-is-maintained-by-">This API is maintained by:</h4>
+<p><a href="https://github.com/bengwinter">bengwinter</a>
+<a href="https://github.com/blakeruddock">blakeruddock</a>
+<a href="https://github.com/brycelambert">brycelambert</a></p>
