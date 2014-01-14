@@ -1,24 +1,22 @@
-@import "bourbon";
-
 #container {
   height: 2000px;
   width: 100%;
   padding: 10px 20px;
-  color: rgba(203, 203, 203, 1.0000);
+  color: #cbcbcb;
   overflow: scroll;
 }
 
 #demographic-entry-container {
   display: none;
-  label {
-    font-weight: 500;
-    cursor: default;
-    span {
-      font-size: 1.05rem;
-      font-weight: 500;
-      cursor: default;
-    }
-  }
+}
+#demographic-entry-container label {
+  font-weight: 500;
+  cursor: default;
+}
+#demographic-entry-container label span {
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: default;
 }
 
 .side-column {
@@ -29,12 +27,10 @@
   margin-top: 100px;
 }
 
-#user-input-form {
-  input[type=number]::-webkit-inner-spin-button, 
-  input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0;
-  }
+#user-input-form input[type=number]::-webkit-inner-spin-button,
+#user-input-form input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .input-container-min {
@@ -87,14 +83,14 @@
 
 #header-container {
   text-align: center;
-  background-color: rgba(13, 60, 34, 1.0000);
-  h1 {
-    color: rgba(230, 230, 230, 1.000);
-    display: inline;
-  }
-  p {
-    color: rgba(210, 210, 210, 1.000);
-  }
+  background-color: #0d3c22;
+}
+#header-container h1 {
+  color: #e6e6e6;
+  display: inline;
+}
+#header-container p {
+  color: #d2d2d2;
 }
 
 #social-media-follow-container {
@@ -117,109 +113,101 @@
 }
 
 .submit-entry-button-large {
-  color: rgba(255, 255, 255, 1.0000);
+  color: white;
   margin: 20px;
   padding: 17px 45px;
   font-family: "Alegreya Sans";
   font-size: 1.1rem;
-  background-color: rgba(13, 60, 34, 1.0000);
+  background-color: #0d3c22;
   border: none;
 }
 
 .submit-entry-button-min {
   margin: 1px;
   padding: 20px 46px;
-  background-color: rgba(13, 60, 34, 1.0000);
+  background-color: #0d3c22;
   font-family: "Alegreya Sans";
-  color: rgba(255, 255, 255, 1.0000);
+  color: white;
   font-size: 1.1rem;
   position: left;
   border: none;
 }
 
-
 #back-button {
   margin: 1px;
   padding: 20px 30px;
-  background-color: rgba(115, 15, 22, 1.0000);
+  background-color: #730f16;
   display: none;
   font-size: 1.1rem;
   border: none;
   font-family: "Alegreya Sans";
-  color: rgba(255, 255, 255, 1.0000);
+  color: white;
   float: right;
 }
 
 .entry-form-header {
-    font-size: 1.5rem;
-    span {
-      font-size: 1.9rem;
-    }
+  font-size: 1.5rem;
+}
+.entry-form-header span {
+  font-size: 1.9rem;
 }
 
 .entry-form-header-min {
-    font-size: 1.0rem;
-    margin-bottom: -5px;
-    span {
-      font-size: 1.2rem;
-    }
+  font-size: 1.0rem;
+  margin-bottom: -5px;
+}
+.entry-form-header-min span {
+  font-size: 1.2rem;
 }
 
-.form-column-min {
-  input {
-    margin: 2px 0;
-    height: 30px;
-    padding: 2px 2px 2px 5px;
-  }
-  label {
-    margin: 5px 0;
-  }
-  select {
-    margin: 2px 0;
-    height: 30px;
-    padding: .25rem;
-  }
+.form-column-min input {
+  margin: 2px 0;
+  height: 30px;
+  padding: 2px 2px 2px 5px;
+}
+.form-column-min label {
+  margin: 5px 0;
+}
+.form-column-min select {
+  margin: 2px 0;
+  height: 30px;
+  padding: .25rem;
 }
 
 #bottom-bar {
   width: 100%;
-  background-color: rgba(33, 33, 33, 1.0000);
-  color: rgba(245, 245, 245, 1.0000);
+  background-color: #212121;
+  color: whitesmoke;
   bottom: 0;
   position: fixed;
   height: 25px;
-  ul {
-    text-align: center;
-    margin: 0;
-    li {
-      padding-left: 10%;
-      padding-right: 10%;
-      display: inline-block;
-    }
-  }
+}
+#bottom-bar ul {
+  text-align: center;
+  margin: 0;
+}
+#bottom-bar ul li {
+  padding-left: 10%;
+  padding-right: 10%;
+  display: inline-block;
 }
 
 .bottom-bar-link {
-  color: rgba(180, 180, 180, 1.0000);
+  color: #b4b4b4;
 }
 
-@media screen and (max-width:705px) {
-  #bottom-bar {
-    ul {
-      li {
-        display: block;
-      }
-    }
+@media screen and (max-width: 705px) {
+  #bottom-bar ul li {
+    display: block;
   }
 }
-
 .dropdown {
   color: rgba(0, 0, 0, 0.4);
   height: 37px;
   font-size: 14px;
   font-family: "Alegreya Sans";
   weight: 400;
-  color: rgba(0, 0, 0, 1.0);
+  color: black;
 }
 
 .guess-min {
@@ -228,16 +216,16 @@
 
 .percentile-guess-container {
   text-align: center;
-  p {
-    color: rgba(50, 50, 97, 1.0000);
-    font-weight: 700;
-    margin: -10px 0 4px 0px;
-    font-size: 1.5rem;
-  }
+}
+.percentile-guess-container p {
+  color: #323261;
+  font-weight: 700;
+  margin: -10px 0 4px 0px;
+  font-size: 1.5rem;
 }
 
 .disabled-input-tooltip {
-  color: rgba(79, 5, 9, 1.0000);
+  color: #4f0509;
 }
 
 .error {
@@ -246,18 +234,17 @@
   font-size: 1.0rem;
 }
 
-
 #output-container {
   height: 636px;
-  border: 1px solid rgba(0, 0, 0, 1.0000);
+  border: 1px solid black;
   display: none;
   padding: 5px;
-  color: rgba(0, 0, 0, 1.000);
+  color: black;
   margin-bottom: 25px;
 }
 
 #data-output {
-  color: rgba(12, 72, 73, 1.000);
+  color: #0c4849;
 }
 
 .granular-percentile-title {
@@ -268,10 +255,9 @@
   font-size: 1.1rem;
 }
 
-#output-header { 
+#output-header {
   font-size: 2.7rem;
-  color: rgba(172, 47, 9, 1.000);
-
+  color: #ac2f09;
 }
 
 #output-header-container {
@@ -283,7 +269,6 @@
   text-align: center;
 }
 
-
 .social-media-button-wrapper {
   display: inline;
   margin: 0px 5px;
@@ -294,111 +279,111 @@
   width: 125px;
   padding: 15px;
   display: inline-block;
-  a {
-    color: rgba(255, 255, 255, 1.0000);
-  }
+}
+.social-media-button a {
+  color: white;
 }
 
 #facebook-button {
-  background-color: rgba(59, 89, 152, 1.0000);
+  background-color: #3b5998;
 }
 
 #tweet-button {
-  background-color: rgba(64, 153, 255, 1.0000);
+  background-color: #4099ff;
 }
 
 .form-input-container {
-  border: 1px solid rgba(13, 60, 34, 1.0000);
+  border: 1px solid #0d3c22;
   padding: 5px 10px 10px 10px;
 }
 
 #demographic-entry-container {
-  margin-top: 10px; 
+  margin-top: 10px;
 }
 
 #main-output-container {
   padding: 10px;
   margin-botom: 25px;
-  h3 {
-    color: rgba(40, 149, 149, 1.000);
-  }
-  p {
-    margin: 5px 2px;
-    font-weight: 500;
-    color: rgba(203, 203, 203, 1.0000);
-  }
-  span {
-    font-weight: 700;
-    color: rgba(235, 235, 235, 1.0000);
-  }
+}
+#main-output-container h3 {
+  color: #289595;
+}
+#main-output-container p {
+  margin: 5px 2px;
+  font-weight: 500;
+  color: #cbcbcb;
+}
+#main-output-container span {
+  font-weight: 700;
+  color: #ebebeb;
 }
 
 #main-demographics-container {
   padding: 10px;
   margin-botom: 25px;
-  h3 {
-    color: rgba(40, 149, 149, 1.000)
-  }
-  p {
-    margin: 5px 2px;
-    font-weight: 500;
-    color: rgba(203, 203, 203, 1.0000);
-  } 
-  span {
-    font-weight: 700;
-    color: rgba(235, 235, 235, 1.0000);
-  }
+}
+#main-demographics-container h3 {
+  color: #289595;
+}
+#main-demographics-container p {
+  margin: 5px 2px;
+  font-weight: 500;
+  color: #cbcbcb;
+}
+#main-demographics-container span {
+  font-weight: 700;
+  color: #ebebeb;
 }
 
 #gender-specific-container {
   padding: 10px;
   margin-botom: 25px;
-  h3 {
-    color: rgba(40, 149, 149, 1.000)
-  }
-  p {
-    margin: 5px 2px;
-    font-weight: 500;
-    color: rgba(203, 203, 203, 1.0000);
-  } 
-  span {
-    font-weight: 700;
-    color: rgba(235, 235, 235, 1.0000);
-  }
+}
+#gender-specific-container h3 {
+  color: #289595;
+}
+#gender-specific-container p {
+  margin: 5px 2px;
+  font-weight: 500;
+  color: #cbcbcb;
+}
+#gender-specific-container span {
+  font-weight: 700;
+  color: #ebebeb;
 }
 
 #race-specific-container {
   padding: 10px;
   margin-botom: 25px;
-  h3 {
-    color: rgba(40, 149, 149, 1.000)
-  }
-  p {
-    margin: 5px 2px;
-    font-weight: 500;
-    color: rgba(203, 203, 203, 1.0000);
-  } 
-  span {
-    font-weight: 700;
-    color: rgba(235, 235, 235, 1.0000);
-  }
+}
+#race-specific-container h3 {
+  color: #289595;
+}
+#race-specific-container p {
+  margin: 5px 2px;
+  font-weight: 500;
+  color: #cbcbcb;
+}
+#race-specific-container span {
+  font-weight: 700;
+  color: #ebebeb;
 }
 
 #gender-race-specific-container {
   padding: 10px;
   margin-botom: 25px;
-  h3 {
-    color: rgba(40, 149, 149, 1.000)
-  }
-  p {
-    margin: 5px 2px;
-    font-weight: 500;
-    color: rgba(203, 203, 203, 1.0000);
-  } 
-  span {
-    font-weight: 700;
-    color: rgba(235, 235, 235, 1.0000);
-  }
+}
+#gender-race-specific-container h3 {
+  color: #289595;
+}
+#gender-race-specific-container p {
+  margin: 5px 2px;
+  font-weight: 500;
+  color: #cbcbcb;
+}
+#gender-race-specific-container span {
+  font-weight: 700;
+  color: #ebebeb;
 }
 
 .year-label-container {
@@ -427,7 +412,7 @@
 }
 
 .output-list {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .list-header-container {
