@@ -39,11 +39,15 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# New Relic Gem for ruby
+gem 'newrelic_rpm'
+
+# Use unicorn as the app server
+gem 'unicorn'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Use unicorn as the app server
-# gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
