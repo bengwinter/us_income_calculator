@@ -14223,14 +14223,21 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 
 
 
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=201056676766142";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 $(document).ready(function(){
   Site.setSubmitEvent();
   Site.sizeForm();
   Site.pageResizeListeners();
   Site.animateAbout();
-  Site.animateInheritanceCalculator();
   Site.setBackEvent();
-  Site.setResubmitEvent();
+  Site.setTweetShareEvent();
+  Site.setFacebookEvent();
 });
 
 var Site = {
@@ -14260,104 +14267,60 @@ var Site = {
   },
 
   animateSubmit: function() {
-    $('#user-input').removeClass('large-12').addClass('large-3');
-    $('.form-column').removeClass('large-4').removeClass('right-border-column').addClass('large-12').addClass('form-column-min');
-    $('.form-subheader').removeClass('entry-form-header').addClass('entry-form-header-min')
-    $('#submit-entry').hide();
-    $('#entry-form-guesses').hide();
-    $('#resubmit-entry').show();
+    $('#input-output-container').addClass('large-12').addClass('columns');
+    $('#input-container').addClass('large-3').addClass('columns').addClass('input-container-min');
+    $('.salary-input-container').removeClass('small-9').addClass('small-7').addClass('salary-input-container-min').removeClass('salary-input-container');
+    $('.salary-guess-input-container').removeClass('small-3').addClass('small-5').addClass('salary-guess-input-container-min').removeClass('salary-guess-input-container');
+    $('#user-input').removeClass('user-input-class').removeClass('large-6').removeClass('columns').addClass('user-input-min-class');
+    $('#output-container').fadeIn();
+    $('.side-column').removeClass('large-3').removeClass('columns').hide();
+    $('#demographic-entry-container').show();
+    $('#submit-entry').val('UPDATE').removeClass('submit-entry-button-large').addClass('submit-entry-button-min');
+    $('#form-button-wrapper').addClass('main-button-wrapper-min').removeClass('main-button-wrapper');
     $('#back-button').show();
-    $('#output').fadeIn();
-    $('#inheritance-calculator-container').removeClass('display-calc').hide();
   },
 
+
   animateBack: function() {
-    $('#user-input').addClass('large-12').removeClass('large-3');
-    $('.form-column').addClass('large-4').addClass('right-border-column').removeClass('large-12').removeClass('form-column-min');
-    $('.form-subheader').addClass('entry-form-header').removeClass('entry-form-header-min')
-    $('#submit-entry').show();
-    $('#entry-form-guesses-static').removeClass('entry-form-guesses-static-show').hide();
-    $('#entry-form-guesses').show();
-    $('#resubmit-entry').hide();
+    $('#input-output-container').removeClass('large-12').removeClass('columns');
+    $('#input-container').removeClass('large-3').removeClass('columns').removeClass('input-container-min');
+    $('.salary-guess-input-container-min').removeClass('small-5').addClass('small-3').addClass('salary-guess-input-container').removeClass('salary-guess-input-container-min');
+    $('.salary-input-container-min').addClass('small-9').removeClass('small-').addClass('salary-input-container').removeClass('salary-input-container-min');
+    $('#user-input').addClass('large-6').addClass('columns').removeClass('user-input-min-class').addClass('user-input-class');
+    $('.side-column').addClass('large-3').addClass('columns').show();
+    $('#demographic-entry-container').hide();
+    $('#output-container').hide();
+    $('#submit-entry').val('SUBMIT').removeClass('submit-entry-button-min').addClass('submit-entry-button-large');
+    $('#form-button-wrapper').addClass('main-button-wrapper').removeClass('main-button-wrapper-min');
     $('#back-button').hide();
-    $('#output').hide();
-    $('#inheritance-calculator-container').removeClass('display-calc').hide();
     $('#geo-zone').val('');
     $('#city-type').val('');
     $('#race').val('');
     $('#gender').val('');
-    $('#education-level').val('');
-    $('#salary').val('');
-    $('#assets').val('');
-    $('#inherited-assets').val('');
-    $('#salary-guess').val('');
-    $('#wealth-guess').val('');
-    $('#self-wealth-descr').val('');
-    $('#self-happiness-descr').val('');
     $('#age').val('');
-    $('#output').empty();
-  },
-
-  animateInheritanceCalculator: function() {
-    $('#inheritance-calculator-link').click(function(e){
-      e.preventDefault();
-      if($('#inheritance-calculator-container').hasClass('display-calc')) {
-          $('#inheritance-calculator-container').removeClass('display-calc').hide();
-        } else {
-          $('#inheritance-calculator-container').addClass('display-calc').show();
-        }
-    });
-  },
-
-  renderGuessData: function(data) {
-    var salaryGuess = data["salary_guess"], wealthGuess = "N/A", noEntry = "No Guess";
-    if(salaryGuess !== "" && wealthGuess !== "") {
-      $('#salary-percentile-guess').append(salaryGuess);
-      $('#wealth-percentile-guess').append(wealthGuess);
-      $('#entry-form-guesses-static').addClass('entry-form-guesses-static-show').show();
-    } else if(salaryGuess === "" && wealthGuess !== "") {
-      $('#salary-percentile-guess').append(noEntry);
-      $('#wealth-percentile-guess').append(wealthGuess);
-      $('#entry-form-guesses-static').addClass('entry-form-guesses-static-show').show();
-    } else if(salaryGuess !== "" && wealthGuess === "") {
-      $('#salary-percentile-guess').append(salaryGuess);
-      $('#wealth-percentile-guess').append(noEntry);
-      $('#entry-form-guesses-static').addClass('entry-form-guesses-static-show').show();
-    } else {
-      $('#entry-form-guesses-static').removeClass('entry-form-guesses-static-show').hide();
-    };
-  
-  },
-
-  renderOutput: function(data) {
-    var html = "<ul>Data<li>Salary: " + data["salary"] + "</li><li>Zip Code: " + data["geo_zone"] + "</li><li>City Type: " + data["city_type"] + "</li><li>Race: " + data["race"] + "</li><li>Gender: " + data["gender"] + "</li><li>Education: " + data["education"] + "</li><li>Age: " + data["age"] + "</li><li>Salary Guess: " + data["salary_guess"] + "</li><li>Happiness Rating: " + data["self_happiness_descr"] + "</li><li>Wealth Happiness Rating: " + data["self_wealth_descr"] + "</li></ul>"
-    $('#output').append(html);
-  },
-
-  renderUpdate: function(data) {
-    $('#output').empty();
-    var updated_html = "<ul>Data<li>Salary: " + data["salary"] + "</li><li>Geo Zone: " + data["geo_zone"] + "</li><li>City Type: " + data["city_type"] + "</li><li>Race: " + data["race"] + "</li><li>Gender: " + data["gender"] + "</li><li>Education: " + data["education"] + "</li><li>Age: " + data["age"] + "</li><li>Salary Guess: " + data["salary_guess"] + "</li><li>Happiness Rating: " + data["self_happiness_descr"] + "</li><li>Wealth Happiness Rating: " + data["self_wealth_descr"] + "</li></ul>"
-    $('#output').append(updated_html);
+    $('#education-level').val('');
+    $('#salary-2013').val('');
+    $('#salary-guess-2013').val('');
   },
 
   setSubmitEvent: function() {
-    $('#submit-entry').click(function(e){
-      e.preventDefault();
-      var geo_zone = $('#geo-zone').val(), city_type = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary = $('#salary').val(), salary_guess = $('#salary-guess').val(), self_wealth_descr = $('#self-wealth-descr').val(), self_happiness_descr = $('#self-happiness-descr').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]'), assets = $('#assets').val(), inherited_assets = $('#inherited-assets').val(), wealth_guess = $('#wealth-guess').val();
-      var data = {geo_zone: geo_zone, assets: assets, inherited_assets: inherited_assets, wealth_guess: wealth_guess, city_type: city_type, race: race, gender: gender, education: education, salary: salary, salary_guess: salary_guess, self_happiness_descr: self_happiness_descr, self_wealth_descr: self_wealth_descr, age: age};
-      if((geo_zone !== null && city_type !== null && race !== null && gender !== null && education !== null && salary !== "" && age !== null) && invalidFields.length === 0) {
+    $('#user-input-form')
+      .on('invalid', function () {
+        var invalidFields = $(this).find('[data-invalid]');
+        console.log(invalidFields);
+      })
+      .on('valid', function(e) {
+        var geoZone = $('#geo-zone').val(), cityType = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), age = $('#age').val(), salary2013 = $('#salary-2013').val(), salaryGuess2013 = $('#salary-guess-2013').val(), submitType = $('#submit-entry').val();
+        var data = {geo_zone: geoZone, city_type: cityType, race: race, gender: gender, education: education, age: age, salary_2013: salary2013, salary_guess_2013: salaryGuess2013, submit_type: submitType};
           $.ajax({
-            url: 'submit_entry',
-            type: 'POST',
-            data: data, 
-            success: function(){
-            }
-          });
-          Site.animateSubmit();
-          Site.renderGuessData(data);
-          // Site.renderOutput(data)
-        };
-    });
+              url: 'submit_entry',
+              type: 'POST',
+              data: data, 
+              success: function(){
+              }
+            });
+            Site.animateSubmit();
+      });
   },
 
   setBackEvent: function() {
@@ -14368,17 +14331,49 @@ var Site = {
   },
   
   setResubmitEvent: function() {
-    $('#resubmit-entry').click(function(e){
+    $('#user-input-form')
+      .on('invalid', function() {
+        var invalidFields = $(this).find('[data-invalid]');
+        console.log(invalidFields);
+      })
+      .on('valid', function(e) {
+        var geoZone = $('#geo-zone').val(), cityType = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), age = $('#age').val(), salary2013 = $('#salary-2013').val(), salaryGuess2013 = $('#salary-guess-2013').val(), submitType = $('#submit-entry').val();
+        var data = {geo_zone: geoZone, city_type: cityType, race: race, gender: gender, education: education, age: age, salary_2013: salary2013, salary_guess_2013: salaryGuess2013, submit_type: submitType};
+          $.ajax({
+              url: 'submit_entry',
+              type: 'POST',
+              data: data, 
+              success: function(){
+              }
+            });
+      });
+  },
+
+  setTweetShareEvent: function() {
+    $('#tweet-button').click(function(e){
       e.preventDefault();
-      var geo_zone = $('#geo-zone').val(), city_type = $('#city-type').val(), race = $('#race').val(), gender = $('#gender').val(), education = $('#education-level').val(), salary = $('#salary').val(), salary_guess = $('#salary-guess').val(), self_wealth_descr = $('#self-wealth-descr').val(), self_happiness_descr = $('#self-happiness-descr').val(), age = $('#age').val(), invalidFields = $('#user-input-form').find('[data-invalid]'), assets = $('#assets').val(), inherited_assets = $('#inherited-assets').val(), wealth_guess = $('#wealth-guess').val();
-      var data = {geo_zone: geo_zone, city_type: city_type, race: race, gender: gender, education: education, salary: salary, salary_guess: salary_guess, self_happiness_descr: self_happiness_descr, self_wealth_descr: self_wealth_descr, age: age, assets: assets, inherited_assets: inherited_assets, wealth_guess: wealth_guess};
-      if((geo_zone !== null && city_type !== null && race !== null && gender !== null && education !== null && salary !== "" && age !== null) && invalidFields.length === 0) {
-          Site.renderUpdate(data);
-      };
+      var overallPercentile = $('#all-percentile-output').html();
+      var tweetText = 'I ranked in the ' + overallPercentile + ' percentile. Find your ranking at www.usincomecalculator.com #incomeinequality';
+      var tweetUrl = 'https://twitter.com/share?text=' + encodeURIComponent(tweetText);
+      window.open(tweetUrl, '_blank', 'height=300,width=600');
+    });
+  },
+
+  setFacebookEvent: function() {
+    $('#facebook-button').click(function(e){
+      e.preventDefault();
+      var overallPercentile = $('#all-percentile-output').html();
+      var facebookDescription = 'I ranked in the ' + overallPercentile + ' percentile. Find your ranking at www.usincomecalculator.com #incomeinequality';
+      var siteUrl = 'http://localhost:3000';
+      var facebookTitle = 'US Income Calculator';
+      var facebookImage = 'http://webcastnewsroom.com/wp-content/uploads/2013/10/redsox11.jpg';
+      var facebookUrl = 'https://www.facebook.com/sharer/sharer.php?s=100&p[title]=' + encodeURIComponent(facebookTitle) + '&p[summary]=' + encodeURIComponent(facebookDescription) + '&p[url]=' + encodeURIComponent(siteUrl) + '&p[images][0]=' + encodeURIComponent(facebookImage);
+      window.open(facebookUrl, '_blank', 'height=300,width=600');
     });
   }
 }
 ;
+!function(e,t,n){var a,c=e.getElementsByTagName(t)[0];e.getElementById(n)||(a=e.createElement(t),a.id=n,a.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=201056676766142",c.parentNode.insertBefore(a,c))}(document,"script","facebook-jssdk");
 $(function(){$(document).foundation().foundation("abide",{patterns:{zip_code:/^.{,5}$/}})});
 /*!
  * jQuery Transit - CSS3 transitions and transformations
@@ -14390,6 +14385,8 @@ $(function(){$(document).foundation().foundation("abide",{patterns:{zip_code:/^.
  */
 
 (function(k){k.transit={version:"0.9.9",propertyMap:{marginLeft:"margin",marginRight:"margin",marginBottom:"margin",marginTop:"margin",paddingLeft:"padding",paddingRight:"padding",paddingBottom:"padding",paddingTop:"padding"},enabled:true,useTransitionEnd:false};var d=document.createElement("div");var q={};function b(v){if(v in d.style){return v}var u=["Moz","Webkit","O","ms"];var r=v.charAt(0).toUpperCase()+v.substr(1);if(v in d.style){return v}for(var t=0;t<u.length;++t){var s=u[t]+r;if(s in d.style){return s}}}function e(){d.style[q.transform]="";d.style[q.transform]="rotateY(90deg)";return d.style[q.transform]!==""}var a=navigator.userAgent.toLowerCase().indexOf("chrome")>-1;q.transition=b("transition");q.transitionDelay=b("transitionDelay");q.transform=b("transform");q.transformOrigin=b("transformOrigin");q.transform3d=e();var i={transition:"transitionEnd",MozTransition:"transitionend",OTransition:"oTransitionEnd",WebkitTransition:"webkitTransitionEnd",msTransition:"MSTransitionEnd"};var f=q.transitionEnd=i[q.transition]||null;for(var p in q){if(q.hasOwnProperty(p)&&typeof k.support[p]==="undefined"){k.support[p]=q[p]}}d=null;k.cssEase={_default:"ease","in":"ease-in",out:"ease-out","in-out":"ease-in-out",snap:"cubic-bezier(0,1,.5,1)",easeOutCubic:"cubic-bezier(.215,.61,.355,1)",easeInOutCubic:"cubic-bezier(.645,.045,.355,1)",easeInCirc:"cubic-bezier(.6,.04,.98,.335)",easeOutCirc:"cubic-bezier(.075,.82,.165,1)",easeInOutCirc:"cubic-bezier(.785,.135,.15,.86)",easeInExpo:"cubic-bezier(.95,.05,.795,.035)",easeOutExpo:"cubic-bezier(.19,1,.22,1)",easeInOutExpo:"cubic-bezier(1,0,0,1)",easeInQuad:"cubic-bezier(.55,.085,.68,.53)",easeOutQuad:"cubic-bezier(.25,.46,.45,.94)",easeInOutQuad:"cubic-bezier(.455,.03,.515,.955)",easeInQuart:"cubic-bezier(.895,.03,.685,.22)",easeOutQuart:"cubic-bezier(.165,.84,.44,1)",easeInOutQuart:"cubic-bezier(.77,0,.175,1)",easeInQuint:"cubic-bezier(.755,.05,.855,.06)",easeOutQuint:"cubic-bezier(.23,1,.32,1)",easeInOutQuint:"cubic-bezier(.86,0,.07,1)",easeInSine:"cubic-bezier(.47,0,.745,.715)",easeOutSine:"cubic-bezier(.39,.575,.565,1)",easeInOutSine:"cubic-bezier(.445,.05,.55,.95)",easeInBack:"cubic-bezier(.6,-.28,.735,.045)",easeOutBack:"cubic-bezier(.175, .885,.32,1.275)",easeInOutBack:"cubic-bezier(.68,-.55,.265,1.55)"};k.cssHooks["transit:transform"]={get:function(r){return k(r).data("transform")||new j()},set:function(s,r){var t=r;if(!(t instanceof j)){t=new j(t)}if(q.transform==="WebkitTransform"&&!a){s.style[q.transform]=t.toString(true)}else{s.style[q.transform]=t.toString()}k(s).data("transform",t)}};k.cssHooks.transform={set:k.cssHooks["transit:transform"].set};if(k.fn.jquery<"1.8"){k.cssHooks.transformOrigin={get:function(r){return r.style[q.transformOrigin]},set:function(r,s){r.style[q.transformOrigin]=s}};k.cssHooks.transition={get:function(r){return r.style[q.transition]},set:function(r,s){r.style[q.transition]=s}}}n("scale");n("translate");n("rotate");n("rotateX");n("rotateY");n("rotate3d");n("perspective");n("skewX");n("skewY");n("x",true);n("y",true);function j(r){if(typeof r==="string"){this.parse(r)}return this}j.prototype={setFromString:function(t,s){var r=(typeof s==="string")?s.split(","):(s.constructor===Array)?s:[s];r.unshift(t);j.prototype.set.apply(this,r)},set:function(s){var r=Array.prototype.slice.apply(arguments,[1]);if(this.setter[s]){this.setter[s].apply(this,r)}else{this[s]=r.join(",")}},get:function(r){if(this.getter[r]){return this.getter[r].apply(this)}else{return this[r]||0}},setter:{rotate:function(r){this.rotate=o(r,"deg")},rotateX:function(r){this.rotateX=o(r,"deg")},rotateY:function(r){this.rotateY=o(r,"deg")},scale:function(r,s){if(s===undefined){s=r}this.scale=r+","+s},skewX:function(r){this.skewX=o(r,"deg")},skewY:function(r){this.skewY=o(r,"deg")},perspective:function(r){this.perspective=o(r,"px")},x:function(r){this.set("translate",r,null)},y:function(r){this.set("translate",null,r)},translate:function(r,s){if(this._translateX===undefined){this._translateX=0}if(this._translateY===undefined){this._translateY=0}if(r!==null&&r!==undefined){this._translateX=o(r,"px")}if(s!==null&&s!==undefined){this._translateY=o(s,"px")}this.translate=this._translateX+","+this._translateY}},getter:{x:function(){return this._translateX||0},y:function(){return this._translateY||0},scale:function(){var r=(this.scale||"1,1").split(",");if(r[0]){r[0]=parseFloat(r[0])}if(r[1]){r[1]=parseFloat(r[1])}return(r[0]===r[1])?r[0]:r},rotate3d:function(){var t=(this.rotate3d||"0,0,0,0deg").split(",");for(var r=0;r<=3;++r){if(t[r]){t[r]=parseFloat(t[r])}}if(t[3]){t[3]=o(t[3],"deg")}return t}},parse:function(s){var r=this;s.replace(/([a-zA-Z0-9]+)\((.*?)\)/g,function(t,v,u){r.setFromString(v,u)})},toString:function(t){var s=[];for(var r in this){if(this.hasOwnProperty(r)){if((!q.transform3d)&&((r==="rotateX")||(r==="rotateY")||(r==="perspective")||(r==="transformOrigin"))){continue}if(r[0]!=="_"){if(t&&(r==="scale")){s.push(r+"3d("+this[r]+",1)")}else{if(t&&(r==="translate")){s.push(r+"3d("+this[r]+",0)")}else{s.push(r+"("+this[r]+")")}}}}}return s.join(" ")}};function m(s,r,t){if(r===true){s.queue(t)}else{if(r){s.queue(r,t)}else{t()}}}function h(s){var r=[];k.each(s,function(t){t=k.camelCase(t);t=k.transit.propertyMap[t]||k.cssProps[t]||t;t=c(t);if(k.inArray(t,r)===-1){r.push(t)}});return r}function g(s,v,x,r){var t=h(s);if(k.cssEase[x]){x=k.cssEase[x]}var w=""+l(v)+" "+x;if(parseInt(r,10)>0){w+=" "+l(r)}var u=[];k.each(t,function(z,y){u.push(y+" "+w)});return u.join(", ")}k.fn.transition=k.fn.transit=function(z,s,y,C){var D=this;var u=0;var w=true;if(typeof s==="function"){C=s;s=undefined}if(typeof y==="function"){C=y;y=undefined}if(typeof z.easing!=="undefined"){y=z.easing;delete z.easing}if(typeof z.duration!=="undefined"){s=z.duration;delete z.duration}if(typeof z.complete!=="undefined"){C=z.complete;delete z.complete}if(typeof z.queue!=="undefined"){w=z.queue;delete z.queue}if(typeof z.delay!=="undefined"){u=z.delay;delete z.delay}if(typeof s==="undefined"){s=k.fx.speeds._default}if(typeof y==="undefined"){y=k.cssEase._default}s=l(s);var E=g(z,s,y,u);var B=k.transit.enabled&&q.transition;var t=B?(parseInt(s,10)+parseInt(u,10)):0;if(t===0){var A=function(F){D.css(z);if(C){C.apply(D)}if(F){F()}};m(D,w,A);return D}var x={};var r=function(H){var G=false;var F=function(){if(G){D.unbind(f,F)}if(t>0){D.each(function(){this.style[q.transition]=(x[this]||null)})}if(typeof C==="function"){C.apply(D)}if(typeof H==="function"){H()}};if((t>0)&&(f)&&(k.transit.useTransitionEnd)){G=true;D.bind(f,F)}else{window.setTimeout(F,t)}D.each(function(){if(t>0){this.style[q.transition]=E}k(this).css(z)})};var v=function(F){this.offsetWidth;r(F)};m(D,w,v);return this};function n(s,r){if(!r){k.cssNumber[s]=true}k.transit.propertyMap[s]=q.transform;k.cssHooks[s]={get:function(v){var u=k(v).css("transit:transform");return u.get(s)},set:function(v,w){var u=k(v).css("transit:transform");u.setFromString(s,w);k(v).css({"transit:transform":u})}}}function c(r){return r.replace(/([A-Z])/g,function(s){return"-"+s.toLowerCase()})}function o(s,r){if((typeof s==="string")&&(!s.match(/^[\-0-9\.]+$/))){return s}else{return""+s+r}}function l(s){var r=s;if(k.fx.speeds[r]){r=k.fx.speeds[r]}return o(r,"ms")}k.transit.getTransitionValue=g})(jQuery);
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs")
+;
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -14402,7 +14399,6 @@ $(function(){$(document).foundation().foundation("abide",{patterns:{zip_code:/^.
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
 
 
 

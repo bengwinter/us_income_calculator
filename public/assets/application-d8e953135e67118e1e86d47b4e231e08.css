@@ -150,8 +150,8 @@ select {
     margin-right: 0; }
   .row .row {
     width: auto;
-    margin-left: -0.9375rem;
-    margin-right: -0.9375rem;
+    margin-left: -rem-calc(10)/2;
+    margin-right: -rem-calc(10)/2;
     margin-top: 0;
     margin-bottom: 0;
     max-width: none;
@@ -175,8 +175,8 @@ select {
 .column,
 .columns {
   position: relative;
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem;
+  padding-left: rem-calc(10)/2;
+  padding-right: rem-calc(10)/2;
   width: 100%;
   float: left; }
 
@@ -294,8 +294,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: rem-calc(10)/2;
+    padding-right: rem-calc(10)/2;
     float: left; }
 
   .small-1 {
@@ -526,8 +526,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: rem-calc(10)/2;
+    padding-right: rem-calc(10)/2;
     float: left; }
 
   .medium-1 {
@@ -868,8 +868,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: rem-calc(10)/2;
+    padding-right: rem-calc(10)/2;
     float: left; }
 
   .large-1 {
@@ -1100,8 +1100,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: rem-calc(10)/2;
+    padding-right: rem-calc(10)/2;
     float: left; }
 
   .xlarge-1 {
@@ -1332,8 +1332,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: rem-calc(10)/2;
+    padding-right: rem-calc(10)/2;
     float: left; }
 
   .xxlarge-1 {
@@ -1474,7 +1474,7 @@ select {
         background: #e2e2e2; }
   .accordion .content {
     display: none;
-    padding: 0.9375rem; }
+    padding: rem-calc(10)/2; }
     .accordion .content.active {
       display: block;
       background: white; }
@@ -3946,15 +3946,15 @@ table {
   .tabs-content > .content {
     display: none;
     float: left;
-    padding: 0.9375rem 0; }
+    padding: rem-calc(10)/2 0; }
     .tabs-content > .content.active {
       display: block; }
     .tabs-content > .content.contained {
-      padding: 0.9375rem; }
+      padding: rem-calc(10)/2; }
   .tabs-content.vertical {
     display: block; }
     .tabs-content.vertical > .content {
-      padding: 0 0.9375rem; }
+      padding: 0 rem-calc(10)/2; }
 
 @media only screen and (min-width: 40.063em) {
   .tabs.vertical {
@@ -5331,7 +5331,425 @@ th.hide-for-touch {
 
 .touch th.show-for-touch {
   display: table-cell !important; }
-#container{height:2000px;width:100%;padding:10px 20px;color:#cbcbcb;overflow:scroll}#entry-form-demographic label{font-weight:500;cursor:default}#entry-form-demographic label span{font-size:1.05rem;font-weight:500}#user-input-form input[type=number]::-webkit-inner-spin-button,#user-input-form input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}#back-button-tool-tip{color:white;cursor:pointer;font-weight:normal}.entry-form-header-first-letter{font-weight:500;font-size:1.05rem}.entry-form-header-rest{font-weight:500}.right-border-column{border-right:1px solid #cbcbcb}.entry-form-header-div{text-align:center}.vertical-line-delimeter{width:0.2em;height:100px}#header-container{text-align:center;background-color:#0d3c22}#header-container h1{color:#e6e6e6}#header-container p{color:#d2d2d2}#paragraph-header{margin-top:-10px}#submit-entry{color:white;margin:20px;padding:17px 45px;background-color:#0d3c22}#resubmit-entry{margin:26px 10px 10px 10px;padding:17px 23px;background-color:#005673;display:none;position:left}#min-button-wrapper{width:100%;padding:5px}#back-button{margin:26px 10px 10px 10px;padding:17px 18px;background-color:#730f16;display:none;float:right}.entry-form-header{font-size:1.5rem}.entry-form-header span{font-size:1.9rem}.entry-form-header-min{font-size:1.0rem;margin-bottom:-5px}.entry-form-header-min span{font-size:1.2rem}.form-column-min input{margin:2px 0;height:30px;padding:2px 2px 2px 5px}.form-column-min label{margin:5px 0}.form-column-min select{margin:2px 0;height:30px;padding:.25rem}#bottom-bar{width:100%;background-color:#212121;color:#f5f5f5;bottom:0;position:fixed;height:25px}#bottom-bar ul{text-align:center;margin:0}#bottom-bar ul li{padding-left:10%;padding-right:10%;display:inline-block}.bottom-bar-link{color:#b4b4b4}@media screen and (max-width: 705px){#bottom-bar ul li{display:block}}#button-wrapper{text-align:center;width:100%;display:inline-block}.dropdown{color:rgba(0,0,0,0.4);height:37px;font-size:14px;font-family:"Alegreya Sans";weight:400;color:#000}.guess-min{text-align:center}.percentile-guess-container{text-align:center}.percentile-guess-container p{color:#323261;font-weight:700;margin:-10px 0 4px 0px;font-size:1.5rem}#entry-form-guesses-static{display:none;margin-bottom:-15px}#inheritance-calculator-link{color:#008cba;font-size:.75rem;cursor:pointer}#inheritance-calculator-container{text-align:center;width:100%;display:none}.disabled-input-tooltip{color:#4f0509}.inheritance-calculator{background-color:#f5f5f5;height:150px;display:inline-block;width:50%;margin-bottom:25px}#inheritance-asset-label{display:inline-block}.error{font-family:"Alegreya Sans";font-weight:300;font-size:1.0rem}#output{background-color:#0c4849;height:600px;display:none;color:#000;margin-bottom:25px}.granular-percentile-title{display:inline}.large-comma-dollar-sign{font-size:1.1rem}#output-header{font-size:2.7rem;color:#ac2f09}#output-header-container{text-align:center;margin-top:10px}#main-output-container{padding:10px;margin-botom:25px}#main-output-container h3{color:#289595}#main-output-container p{margin:5px 2px;font-weight:500;color:#cbcbcb}#main-output-container span{font-weight:700;color:#ebebeb}#main-demographics-container{padding:10px;margin-botom:25px}#main-demographics-container h3{color:#289595}#main-demographics-container p{margin:5px 2px;font-weight:500;color:#cbcbcb}#main-demographics-container span{font-weight:700;color:#ebebeb}#gender-specific-container{padding:10px;margin-botom:25px}#gender-specific-container h3{color:#289595}#gender-specific-container p{margin:5px 2px;font-weight:500;color:#cbcbcb}#gender-specific-container span{font-weight:700;color:#ebebeb}#race-specific-container{padding:10px;margin-botom:25px}#race-specific-container h3{color:#289595}#race-specific-container p{margin:5px 2px;font-weight:500;color:#cbcbcb}#race-specific-container span{font-weight:700;color:#ebebeb}#gender-race-specific-container{padding:10px;margin-botom:25px}#gender-race-specific-container h3{color:#289595}#gender-race-specific-container p{margin:5px 2px;font-weight:500;color:#cbcbcb}#gender-race-specific-container span{font-weight:700;color:#ebebeb}
+#container {
+  height: 2000px;
+  width: 100%;
+  padding: 10px 20px;
+  color: #cbcbcb;
+  overflow: scroll;
+}
+
+#demographic-entry-container {
+  display: none;
+}
+#demographic-entry-container label {
+  font-weight: 500;
+  cursor: default;
+}
+#demographic-entry-container label span {
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: default;
+}
+
+.side-column {
+  height: 600px;
+}
+
+.user-input-class {
+  margin-top: 100px;
+}
+
+#user-input-form input[type=number]::-webkit-inner-spin-button,
+#user-input-form input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-container-min {
+  padding-right: 5px;
+}
+
+.demographic-input-container {
+  padding: 5px;
+}
+
+.salary-input-container {
+  padding: 22px 5px 5px 5px;
+}
+
+.salary-input-container-min {
+  padding: 5px;
+}
+
+.salary-guess-input-container {
+  padding: 22px 5px 5px 5px;
+}
+
+.salary-guess-input-container-min {
+  padding: 5px;
+}
+
+#back-button-tool-tip {
+  color: white;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.entry-form-header-first-letter {
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.entry-form-header-rest {
+  font-weight: 500;
+}
+
+.entry-form-header-div {
+  text-align: center;
+}
+
+.vertical-line-delimeter {
+  width: 0.2em;
+  height: 100px;
+}
+
+#header-container {
+  text-align: center;
+  background-color: #0d3c22;
+}
+#header-container h1 {
+  color: #e6e6e6;
+  display: inline;
+}
+#header-container p {
+  color: #d2d2d2;
+}
+
+#social-media-follow-container {
+  text-align: center;
+}
+
+#paragraph-header {
+  margin-top: -10px;
+}
+
+.main-button-wrapper {
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
+
+.main-button-wrapper-min {
+  width: 100%;
+  padding: 5px 0px;
+}
+
+.submit-entry-button-large {
+  color: white;
+  margin: 20px;
+  padding: 17px 45px;
+  font-family: "Alegreya Sans";
+  font-size: 1.1rem;
+  background-color: #0d3c22;
+  border: none;
+}
+
+.submit-entry-button-min {
+  margin: 1px;
+  padding: 20px 46px;
+  background-color: #0d3c22;
+  font-family: "Alegreya Sans";
+  color: white;
+  font-size: 1.1rem;
+  position: left;
+  border: none;
+}
+
+#back-button {
+  margin: 1px;
+  padding: 20px 30px;
+  background-color: #730f16;
+  display: none;
+  font-size: 1.1rem;
+  border: none;
+  font-family: "Alegreya Sans";
+  color: white;
+  float: right;
+}
+
+.entry-form-header {
+  font-size: 1.5rem;
+}
+.entry-form-header span {
+  font-size: 1.9rem;
+}
+
+.entry-form-header-min {
+  font-size: 1.0rem;
+  margin-bottom: -5px;
+}
+.entry-form-header-min span {
+  font-size: 1.2rem;
+}
+
+.form-column-min input {
+  margin: 2px 0;
+  height: 30px;
+  padding: 2px 2px 2px 5px;
+}
+.form-column-min label {
+  margin: 5px 0;
+}
+.form-column-min select {
+  margin: 2px 0;
+  height: 30px;
+  padding: .25rem;
+}
+
+#bottom-bar {
+  width: 100%;
+  background-color: #212121;
+  color: whitesmoke;
+  bottom: 0;
+  position: fixed;
+  height: 25px;
+}
+#bottom-bar ul {
+  text-align: center;
+  margin: 0;
+}
+#bottom-bar ul li {
+  padding-left: 10%;
+  padding-right: 10%;
+  display: inline-block;
+}
+
+.bottom-bar-link {
+  color: #b4b4b4;
+}
+
+@media screen and (max-width: 705px) {
+  #bottom-bar ul li {
+    display: block;
+  }
+}
+.dropdown {
+  color: rgba(0, 0, 0, 0.4);
+  height: 37px;
+  font-size: 14px;
+  font-family: "Alegreya Sans";
+  weight: 400;
+  color: black;
+}
+
+.guess-min {
+  text-align: center;
+}
+
+.percentile-guess-container {
+  text-align: center;
+}
+.percentile-guess-container p {
+  color: #323261;
+  font-weight: 700;
+  margin: -10px 0 4px 0px;
+  font-size: 1.5rem;
+}
+
+.disabled-input-tooltip {
+  color: #4f0509;
+}
+
+.error {
+  font-family: "Alegreya Sans";
+  font-weight: 300;
+  font-size: 1.0rem;
+}
+
+#output-container {
+  border: 1px solid black;
+  display: none;
+  padding: 5px;
+  color: black;
+  margin-bottom: 25px;
+}
+
+#data-output {
+  color: #0c4849;
+}
+
+.granular-percentile-title {
+  display: inline;
+}
+
+.large-comma-dollar-sign {
+  font-size: 1.1rem;
+}
+
+#output-header {
+  font-size: 2.7rem;
+  color: #ac2f09;
+}
+
+#output-header-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#social-media-links-container {
+  text-align: center;
+}
+
+.social-media-button-wrapper {
+  display: inline;
+  margin: 0px 5px;
+}
+
+.social-media-button {
+  height: 50px;
+  width: 125px;
+  padding: 15px;
+  display: inline-block;
+}
+.social-media-button a {
+  color: white;
+}
+
+#facebook-button {
+  background-color: #3b5998;
+}
+
+#tweet-button {
+  background-color: #4099ff;
+}
+
+.form-input-container {
+  border: 1px solid #0d3c22;
+  padding: 5px 10px 10px 10px;
+}
+
+#demographic-entry-container {
+  margin-top: 10px;
+}
+
+#main-output-container {
+  padding: 10px;
+  margin-botom: 25px;
+}
+#main-output-container h3 {
+  color: #289595;
+}
+#main-output-container p {
+  margin: 5px 2px;
+  font-weight: 500;
+  color: #cbcbcb;
+}
+#main-output-container span {
+  font-weight: 700;
+  color: #ebebeb;
+}
+
+#main-demographics-container {
+  padding: 10px;
+  margin-botom: 25px;
+}
+#main-demographics-container h3 {
+  color: #289595;
+}
+#main-demographics-container p {
+  margin: 5px 2px;
+  font-weight: 500;
+  color: #cbcbcb;
+}
+#main-demographics-container span {
+  font-weight: 700;
+  color: #ebebeb;
+}
+
+#gender-specific-container {
+  padding: 10px;
+  margin-botom: 25px;
+}
+#gender-specific-container h3 {
+  color: #289595;
+}
+#gender-specific-container p {
+  margin: 5px 2px;
+  font-weight: 500;
+  color: #cbcbcb;
+}
+#gender-specific-container span {
+  font-weight: 700;
+  color: #ebebeb;
+}
+
+#race-specific-container {
+  padding: 10px;
+  margin-botom: 25px;
+}
+#race-specific-container h3 {
+  color: #289595;
+}
+#race-specific-container p {
+  margin: 5px 2px;
+  font-weight: 500;
+  color: #cbcbcb;
+}
+#race-specific-container span {
+  font-weight: 700;
+  color: #ebebeb;
+}
+
+#gender-race-specific-container {
+  padding: 10px;
+  margin-botom: 25px;
+}
+#gender-race-specific-container h3 {
+  color: #289595;
+}
+#gender-race-specific-container p {
+  margin: 5px 2px;
+  font-weight: 500;
+  color: #cbcbcb;
+}
+#gender-race-specific-container span {
+  font-weight: 700;
+  color: #ebebeb;
+}
+
+.year-label-container {
+  text-align: center;
+}
+
+.year-label {
+  margin: 0px 0px -10px 0px;
+}
+
+#2000-year-label {
+  margin-top: 15px;
+}
+
+#2013-year-label {
+  margin-top: -5px;
+}
+
+#salary-output-container {
+  list-style-type: none;
+  text-align: center;
+}
+
+#demographic-output-container {
+  text-align: center;
+}
+
+.output-list {
+  list-style-type: none;
+}
+
+.list-header-container {
+  text-algn: center;
+}
 #container {
   height: 2000px;
   width: 100%;
@@ -5339,17 +5757,44 @@ th.hide-for-touch {
   color: #cbcbcb;
   overflow: scroll; }
 
-#entry-form-demographic label {
-  font-weight: 500;
-  cursor: default; }
-  #entry-form-demographic label span {
-    font-size: 1.05rem;
-    font-weight: 500; }
+#demographic-entry-container {
+  display: none; }
+  #demographic-entry-container label {
+    font-weight: 500;
+    cursor: default; }
+    #demographic-entry-container label span {
+      font-size: 1.05rem;
+      font-weight: 500;
+      cursor: default; }
+
+.side-column {
+  height: 600px; }
+
+.user-input-class {
+  margin-top: 100px; }
 
 #user-input-form input[type=number]::-webkit-inner-spin-button,
 #user-input-form input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0; }
+
+.input-container-min {
+  padding-right: 5px; }
+
+.demographic-input-container {
+  padding: 5px; }
+
+.salary-input-container {
+  padding: 22px 5px 5px 5px; }
+
+.salary-input-container-min {
+  padding: 5px; }
+
+.salary-guess-input-container {
+  padding: 22px 5px 5px 5px; }
+
+.salary-guess-input-container-min {
+  padding: 5px; }
 
 #back-button-tool-tip {
   color: white;
@@ -5363,9 +5808,6 @@ th.hide-for-touch {
 .entry-form-header-rest {
   font-weight: 500; }
 
-.right-border-column {
-  border-right: 1px solid #cbcbcb; }
-
 .entry-form-header-div {
   text-align: center; }
 
@@ -5377,35 +5819,54 @@ th.hide-for-touch {
   text-align: center;
   background-color: #0d3c22; }
   #header-container h1 {
-    color: #e6e6e6; }
+    color: #e6e6e6;
+    display: inline; }
   #header-container p {
     color: #d2d2d2; }
+
+#social-media-follow-container {
+  text-align: center; }
 
 #paragraph-header {
   margin-top: -10px; }
 
-#submit-entry {
+.main-button-wrapper {
+  text-align: center;
+  width: 100%;
+  display: inline-block; }
+
+.main-button-wrapper-min {
+  width: 100%;
+  padding: 5px 0px; }
+
+.submit-entry-button-large {
   color: white;
   margin: 20px;
   padding: 17px 45px;
-  background-color: #0d3c22; }
+  font-family: "Alegreya Sans";
+  font-size: 1.1rem;
+  background-color: #0d3c22;
+  border: none; }
 
-#resubmit-entry {
-  margin: 26px 10px 10px 10px;
-  padding: 17px 23px;
-  background-color: #005673;
-  display: none;
-  position: left; }
-
-#min-button-wrapper {
-  width: 100%;
-  padding: 5px; }
+.submit-entry-button-min {
+  margin: 1px;
+  padding: 20px 46px;
+  background-color: #0d3c22;
+  font-family: "Alegreya Sans";
+  color: white;
+  font-size: 1.1rem;
+  position: left;
+  border: none; }
 
 #back-button {
-  margin: 26px 10px 10px 10px;
-  padding: 17px 18px;
+  margin: 1px;
+  padding: 20px 30px;
   background-color: #730f16;
   display: none;
+  font-size: 1.1rem;
+  border: none;
+  font-family: "Alegreya Sans";
+  color: white;
   float: right; }
 
 .entry-form-header {
@@ -5451,11 +5912,6 @@ th.hide-for-touch {
 @media screen and (max-width: 705px) {
   #bottom-bar ul li {
     display: block; } }
-#button-wrapper {
-  text-align: center;
-  width: 100%;
-  display: inline-block; }
-
 .dropdown {
   color: rgba(0, 0, 0, 0.4);
   height: 37px;
@@ -5475,44 +5931,23 @@ th.hide-for-touch {
     margin: -10px 0 4px 0px;
     font-size: 1.5rem; }
 
-#entry-form-guesses-static {
-  display: none;
-  margin-bottom: -15px; }
-
-#inheritance-calculator-link {
-  color: #008cba;
-  font-size: .75rem;
-  cursor: pointer; }
-
-#inheritance-calculator-container {
-  text-align: center;
-  width: 100%;
-  display: none; }
-
 .disabled-input-tooltip {
   color: #4f0509; }
-
-.inheritance-calculator {
-  background-color: whitesmoke;
-  height: 150px;
-  display: inline-block;
-  width: 50%;
-  margin-bottom: 25px; }
-
-#inheritance-asset-label {
-  display: inline-block; }
 
 .error {
   font-family: "Alegreya Sans";
   font-weight: 300;
   font-size: 1.0rem; }
 
-#output {
-  background-color: #0c4849;
-  height: 600px;
+#output-container {
+  border: 1px solid black;
   display: none;
+  padding: 5px;
   color: black;
   margin-bottom: 25px; }
+
+#data-output {
+  color: #0c4849; }
 
 .granular-percentile-title {
   display: inline; }
@@ -5526,6 +5961,34 @@ th.hide-for-touch {
 
 #output-header-container {
   text-align: center;
+  margin-top: 10px; }
+
+#social-media-links-container {
+  text-align: center; }
+
+.social-media-button-wrapper {
+  display: inline;
+  margin: 0px 5px; }
+
+.social-media-button {
+  height: 50px;
+  width: 125px;
+  padding: 15px;
+  display: inline-block; }
+  .social-media-button a {
+    color: white; }
+
+#facebook-button {
+  background-color: #3b5998; }
+
+#tweet-button {
+  background-color: #4099ff; }
+
+.form-input-container {
+  border: 1px solid #0d3c22;
+  padding: 5px 10px 10px 10px; }
+
+#demographic-entry-container {
   margin-top: 10px; }
 
 #main-output-container {
@@ -5592,3 +6055,28 @@ th.hide-for-touch {
   #gender-race-specific-container span {
     font-weight: 700;
     color: #ebebeb; }
+
+.year-label-container {
+  text-align: center; }
+
+.year-label {
+  margin: 0px 0px -10px 0px; }
+
+#2000-year-label {
+  margin-top: 15px; }
+
+#2013-year-label {
+  margin-top: -5px; }
+
+#salary-output-container {
+  list-style-type: none;
+  text-align: center; }
+
+#demographic-output-container {
+  text-align: center; }
+
+.output-list {
+  list-style-type: none; }
+
+.list-header-container {
+  text-algn: center; }
