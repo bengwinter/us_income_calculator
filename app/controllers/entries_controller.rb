@@ -49,7 +49,7 @@ class EntriesController < ApplicationController
     @income_2013 = params["salary_2013"].to_i
     @income_guess_2013 = params["salary_guess_2013"].to_i
     #.7388 comes from the CPI calculator and, as of Jan-2014, is the most current ratio of turning 2013 dollars into 2000 dollars
-    @income_2000 = (@income_2013 * (0.7388))
+    @income_2000 = (@income_2013 * (0.7388)).to_i
 
     #sets keys for original submission
     @keys = []
