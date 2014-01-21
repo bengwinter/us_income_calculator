@@ -6,18 +6,20 @@ class EntriesController < ApplicationController
     @descriptors = []
     @gender_descriptor = params["gender"].capitalize
 
-    case params["education"]
-    when params["education"] = "no-highschool"
-      @education_descriptor = "No High School Diploma"
-    when params["education"] = "highschool"
-      @education_descriptor = "High School Diploma"
-    when params["education"] = "associate"
-      @education_descriptor = "Associate Degree"
-    when params["education"] = "bachelors"
-      @education_descriptor = "Bachelor's Degree"
-    when params["education"] = "advanced"
-      @education_descriptor = "Advanced Degree"
-    end
+    @education_descriptor = Entry::ED_MAP[params["education"]]
+    
+    # case params["education"]
+    # when params["education"] = "no-highschool"
+    #   @education_descriptor = "No High School Diploma"
+    # when params["education"] = "highschool"
+    #   @education_descriptor = "High School Diploma"
+    # when params["education"] = "associate"
+    #   @education_descriptor = "Associate Degree"
+    # when params["education"] = "bachelors"
+    #   @education_descriptor = "Bachelor's Degree"
+    # when params["education"] = "advanced"
+    #   @education_descriptor = "Advanced Degree"
+    # end
 
     case params["age"]
     when params["age"] = "agerange1"

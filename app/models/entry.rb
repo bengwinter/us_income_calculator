@@ -1,4 +1,7 @@
 class Entry < ActiveRecord::Base
+  ED_MAP = {
+    education_descriptor: "No High School Diploma"
+  }
   validates :age, presence: true
   validates :submit_type, presence: true
   validates :gender, presence: true
