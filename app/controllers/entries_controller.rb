@@ -6,6 +6,9 @@ class EntriesController < ApplicationController
     @descriptors = []
     @gender_descriptor = params["gender"].capitalize
 
+
+    #make these into hashes and do a key, value look up
+
     case params["education"]
     when params["education"] = "no-highschool"
       @education_descriptor = "No High School Diploma"
@@ -51,7 +54,7 @@ class EntriesController < ApplicationController
     #.7388 comes from the CPI calculator and, as of Jan-2014, is the most current ratio of turning 2013 dollars into 2000 dollars
     @income_2000 = (@income_2013 * (0.7388)).to_i
 
-    #sets keys for original submission
+    #set keys for original submission
     @keys = []
     @output_2013 = {}
     @output_2000 = {}
@@ -62,6 +65,7 @@ class EntriesController < ApplicationController
     @gender_age = params["gender"] + "allage" + params["age"]
     @gender_education = params["gender"] + "alleducation" + params["education"]
     @keys << @all << @gender << @age << @education << @gender_age << @gender_education
+    binding.pry
 
 
     #sets keys for updated submission with other variables only available after inital submit
@@ -117,6 +121,9 @@ class EntriesController < ApplicationController
     end
 
     #Produces percentile rankings for 2000 income
+    #Create bubble search, split it, then split again and again
+    @Data_2000 = Percentile.new(DATA_2000)
+
     @keys.each do |key|
       p = 0
       percentiles = DATA_2000[key]
