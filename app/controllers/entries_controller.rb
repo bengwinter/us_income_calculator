@@ -65,11 +65,13 @@ class EntriesController < ApplicationController
     @data_2000 = Percentile.new(DATA_2000)
     #Produces percentile rankings 
     @keys.each do |key|
-      percentile_2013 = Percentile.find(@data_2013[key], @income_2013)
-      percentile_2000 = Percentile.find(@data_2000[key], @income_2000)
+      percentile_2013 = @data_2013.find(key, @income_2013)
+      percentile_2000 = @data_2000.find(key, @income_2000)
       @output_2013[key] = percentile_2013
       @output_2000[key] = percentile_2000
     end
+
+          binding.pry
 
     
     Entry.create(submit_type: params["submit_type"], gender: params["gender"], education: params["education"], age: params["age"], salary_2013: params["salary_2013"], salary_guess_2013: params["salary_guess_2013"], geo_zone: params["geo_zone"], city_type: params["city_type"], race: params["race"])
