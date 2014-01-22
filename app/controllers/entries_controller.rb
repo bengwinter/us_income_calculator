@@ -3,51 +3,13 @@ class EntriesController < ApplicationController
   end
 
   def submit
+    #Creates descriptors for user interface
     @descriptors = []
     @gender_descriptor = params["gender"].capitalize
-
-    @education_descriptor = Entry::ED_MAP[params["education"]]
+    @education_descriptor = Entry::EDUCATION_KEY_MAP[params["education"]]
+    @age_descriptor = Entry::AGE_KEY_MAP[params["age"]]
     
-    # case params["education"]
-    # when params["education"] = "no-highschool"
-    #   @education_descriptor = "No High School Diploma"
-    # when params["education"] = "highschool"
-    #   @education_descriptor = "High School Diploma"
-    # when params["education"] = "associate"
-    #   @education_descriptor = "Associate Degree"
-    # when params["education"] = "bachelors"
-    #   @education_descriptor = "Bachelor's Degree"
-    # when params["education"] = "advanced"
-    #   @education_descriptor = "Advanced Degree"
-    # end
-
-    case params["age"]
-    when params["age"] = "agerange1"
-      @age_descriptor = "15 to 24"
-    when params["age"] = "agerange2"
-      @age_descriptor = "25 to 29"
-    when params["age"] = "agerange3"
-      @age_descriptor = "30 to 34"
-    when params["age"] = "agerange4"
-      @age_descriptor = "35 to 39"
-    when params["age"] = "agerange5"
-      @age_descriptor = "40 to 44"
-    when params["age"] = "agerange6"
-      @age_descriptor = "45 to 49"
-    when params["age"] = "agerange7"
-      @age_descriptor = "50 to 54"
-    when params["age"] = "agerange8"
-      @age_descriptor = "55 to 59"
-    when params["age"] = "agerange9"
-      @age_descriptor = "60 to 64"
-    when params["age"] = "agerange10"
-      @age_descriptor = "65 to 69"
-    when params["age"] = "agerange11"
-      @age_descriptor = "70 to 74"
-    when params["age"] = "agerange12"
-      @age_descriptor = "75 and over"
-    end
-    
+    #Creates income variables including 2000 income based on 2013 Salary and ratio from CPI
     @income_2013 = params["salary_2013"].to_i
     @income_guess_2013 = params["salary_guess_2013"].to_i
     #.7388 comes from the CPI calculator and, as of Jan-2014, is the most current ratio of turning 2013 dollars into 2000 dollars
@@ -55,8 +17,6 @@ class EntriesController < ApplicationController
 
     #sets keys for original submission
     @keys = []
-    @output_2013 = {}
-    @output_2000 = {}
     @all = "allallallall"
     @gender = params["gender"] + "allallall"
     @age = "allallage" + params["age"]
@@ -98,48 +58,18 @@ class EntriesController < ApplicationController
     else 
     end
 
-    #Produces percentile rankings for 2013 income
-    @keys.each do |key|
-      p = 0
-      percentiles = DATA_2013[key]
-      l = percentiles.length
-      if @income_2013 > percentiles[(l-1)]
-        p = 99
-      elsif @income_2013 <= percentiles[0]
-        p = 1
-      else
-        while @income_2013 > percentiles[p]
-          p += 1
-        end
-      end
-      if p >= 100
-        p = 99
-      end
-      @output_2013[key] = p
-    end
 
-    #Produces percentile rankings for 2000 income
+    @output_2013 = {}
+    @output_2000 = {}
+    @data_2013 = Percentile.new(DATA_2013)
+    @data_2000 = Percentile.new(DATA_2000)
+    #Produces percentile rankings 
     @keys.each do |key|
-      p = 0
-      percentiles = DATA_2000[key]
-      l = percentiles.length
-      if @income_2000 > percentiles[(l-1)]
-        p = 99
-      elsif @income_2000 <= percentiles[0]
-        p = 1
-      else
-        while @income_2000 > percentiles[p]
-          p += 1
-        end
-      end
-      if p >= 100
-        p = 99
-      end
-      @output_2000[key] = p
+      percentile_2013 = Percentile.find(@data_2013[key], @income_2013)
+      percentile_2000 = Percentile.find(@data_2000[key], @income_2000)
+      @output_2013[key] = percentile_2013
+      @output_2000[key] = percentile_2000
     end
-
-    @output_ideal = {}
-    @output_gs = {}
 
     
     Entry.create(submit_type: params["submit_type"], gender: params["gender"], education: params["education"], age: params["age"], salary_2013: params["salary_2013"], salary_guess_2013: params["salary_guess_2013"], geo_zone: params["geo_zone"], city_type: params["city_type"], race: params["race"])
